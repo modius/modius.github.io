@@ -14,7 +14,9 @@ The guide setup assumes you're running a relatively modern version of OSX. But i
 
 Homebrew is a package manager for OSX. Follow the instructions on the [Homebrew Installation Page](http://mxcl.github.io/homebrew/) to install Homebrew.
 
-``` bash
+**Install Homebrew**
+
+``` bash 
 $ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 ```
 
@@ -24,7 +26,9 @@ This guide will assume that you have Homebrew installed.
 
 Git is a distributed version control system that is used heavily by Chef. We need this too.
 
-``` bash
+**Install GIT**
+
+``` bash 
 $ brew install git
 $ git --version
 git version 1.8.2
@@ -34,33 +38,39 @@ git version 1.8.2
 
 OSX comes with its own outdated version of Ruby. Simply upgrading it can cause trouble. You need something to manage multiple versions of Ruby; enter [rbenv](https://github.com/sstephenson/rbenv/) and [ruby-build](https://github.com/sstephenson/ruby-build).
 
-``` bash
+**Install rbenv**
+
+``` bash 
 $ brew install rbenv
 $ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 $ brew install ruby-build
 ```
 
-> **EDIT:** need to see if the command line entry is good enough or if we should be updating the bash profile.
-
-> **UPDATE 2015/12:** `chruby` is all the rage now.. so use `rbenv` at your peril.
+EDIT: need to see if the command line entry is good enough or if we should be updating the bash profile.
 
 ## Install Ruby
 
 Ruby 1.9 is a requirement of Berkshelf. We will be using 2.0.0-p0 which is the latest patch level of 2.0.0.
 
-``` bash Install Ruby
+**Install Ruby**
+
+``` bash 
 $ rbenv install 2.0.0-p0
 ```
 
 Set Ruby 2.0.0-p0 as your default Ruby version
 
-``` bash Set Global Ruby Version 
+**Set Global Ruby Version**
+
+``` bash 
 $ rbenv global 2.0.0-p0
 ```
 
 And install bundler for dependency resolution
 
-``` bash Install Ruby Bundler
+**Install Ruby Bundler**
+
+``` bash 
 $ gem install bundler
 ```
 
@@ -68,7 +78,9 @@ $ gem install bundler
 
 [Berkshelf](http://berkshelf.com/) is a dependency resolver and retriever for Chef Cookbooks.
 
-``` bash Install Berkshelf
+**Install Berkshelf**
+
+``` bash 
 $ gem install berkshelf
 ```
 
@@ -78,7 +90,9 @@ Note: This guide requires Berkshelf (1.0.0) or later.
 
 [Foodcritic](http://acrmp.github.com/foodcritic/) is a linting tool for Chef Cookbooks that helps you find problems and improve your code.
 
-``` bash Install Foodcritic
+**Install Foodcritic**
+
+``` bash 
 $ gem install foodcritic
 ```
 
@@ -98,7 +112,9 @@ Vagrant can be installed by [downloading the installer](http://downloads.vagrant
 
 Install the [Berkshelf plugin for Vagrant](https://github.com/RiotGames/berkshelf-vagrant).
 
-``` bash Install Berkshelf Plugin
+**Install Berkshelf Plugin**
+
+``` bash 
 $ vagrant plugin install berkshelf-vagrant
 ```
 
@@ -106,7 +122,9 @@ $ vagrant plugin install berkshelf-vagrant
 
 Create a new cookbook called "workbench" to bake our sample development environment.  Berkshelf will do all the hard work, and set up a standard set of templates. Don't forget the ```--foodcritic``` attribute. This will create a skeleton for a new cookbook named ‘workbench' in the directory ```workbench``` in your current working directory.
 
-``` bash Create A Cookbook
+**Create A Cookbook**
+
+``` bash 
 $ berks cookbook workbench --foodcritic
       create  workbench/files/default
       create  workbench/templates/default
@@ -136,7 +154,9 @@ Passing the additional ```--foodcritic``` option generates additional boilerplat
 
 Switch into the directory of the newly created cookbook and install the Gem dependencies with bundler
 
-``` bash Install Gem Dependencies
+**Install Gem Dependencies**
+
+``` bash 
 $ cd workbench
 $ bundle install
 ```
@@ -149,7 +169,9 @@ A ```Vagrantfile``` was generated for you by Berkshelf with a boilerplate config
 
 First thing we're going to do is switch this to an Ubuntu virtual instead. Open the ```Vagrantfile``` inside your cookbook with your [favorite editor](http://www.sublimetext.com/2) and edit the values of the ```config.vm.box``` and ```config.vm.box_url``` attributes.
 
-``` ruby Edit Vagrantfile
+**Edit Vagrantfile**
+
+``` ruby 
 Vagrant::Config.run do |config|
   ...
   config.vm.box = "precise64"
@@ -160,7 +182,9 @@ end
 
 Start up your virtual machine
 
-``` bash Vagrant Up
+**Vagrant Up**
+
+``` bash 
 $ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
 [default] Importing base box 'precise64'...
@@ -205,7 +229,9 @@ Check the full [Vagrant Documentation](http://docs.vagrantup.com/v2) for future 
 
 If at anytime your virtual machine becomes unstable or if you'd like to start over you can destroy your virtual machine with one command
 
-```bash The Green Needle
+**The Green Needle**
+
+```bash 
 $ vagrant destroy
 Are you sure you want to destroy the 'default' VM? [y/N] y
 [default] Forcing shutdown of VM...
@@ -217,8 +243,4 @@ If you destroyed your VM just now becuase you couldn't help yourself, make sure 
 
 - [Part 1: Getting Started](#)
 - Part 2 Setting Up ```<--- YOU ARE HERE```
-- [Part 3] Coming soon...
-- [Part 4] Coming soon...
-- [Part 5] Coming soon...
-- [Part 6] Coming soon...
-- [Part 7] Coming soon...
+- [Part 3] Coming on the never never...

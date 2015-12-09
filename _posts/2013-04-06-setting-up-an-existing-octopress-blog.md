@@ -10,7 +10,9 @@ Once you have your Octopress blog in place, you might wonder how you start contr
 
 You need to setup Octopress for each computer but not from scratch. Clone your repo, switch to the source branch, then manually set up a ```_deploy``` folder and bind it to the master branch.
 
-``` bash Setting Up an Existing Octopress Blog
+**Setting Up an Existing Octopress Blog**
+
+``` bash 
 $ git clone git@github.com:usr/usr.github.com.git
 $ cd usr.github.com
 usr.github.com$ git checkout source

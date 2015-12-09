@@ -18,7 +18,7 @@ I want something:
 - GIT friendly
 - always distributable
 
-What follows is a blow by blow guide, built to help the [Daemonites](http://www.daemon.com.au) improve their development process.  Daemon creates and manages large bespoke [CFML](http://lucee.org/) solutions for many different clients. Each development environment is often quite elaborate and getting set up to contribute to a project can take a fair bit of mucking around... until now ;)
+What follows is a blow by blow guide, built to help the [Daemonites](http://www.daemon.com.au) improve their development process.  Daemon creates and manages large bespoke [CFML](http://www.getrailo.org/) solutions for many different clients. Each development environment is often quite elaborate and getting set up to contribute to a project can take a fair bit of mucking around... until now ;)
 
 While you will be able to use these services on Windows and Linux workstations, all the walkthroughs assume you're working in an OSX environment. Don't let that scare you, things are remarkably similar cross platform.
 
@@ -56,8 +56,8 @@ Next use Chef for provisioning our virtual machines; coding up the automated ins
 The ruby app "Berkshelf" will be handy for retrieving existing cookbooks and resolving their dependencies. And we'll have to roll our own application cookbook to tie it all together.
 
 - Part 1: Getting Started ```<--- YOU ARE HERE```
-- [Part 2 Setting Up](#)
-- [Part 3] Coming soon...
+- [Part 2 Setting Up](vagrant-workbench-setting-up.html)
+- [Part 3] Coming on the never never...
 - [Part 4] Coming soon...
 - [Part 5] Coming soon...
 - [Part 6] Coming soon...
