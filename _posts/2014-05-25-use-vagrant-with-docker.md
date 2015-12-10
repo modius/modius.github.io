@@ -2,7 +2,6 @@
 layout: post
 title: "Use Vagrant with Docker"
 date: 2014-05-25 23:52
-comments: true
 tags: vagrant chef berkshelf railo
 ---
 
