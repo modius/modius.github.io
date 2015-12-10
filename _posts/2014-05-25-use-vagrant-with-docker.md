@@ -3,7 +3,7 @@ layout: post
 title: "Use Vagrant with Docker"
 date: 2014-05-25 23:52
 comments: true
-categories: vagrant chef berkshelf railo
+tags: vagrant chef berkshelf railo
 ---
 
 > “Vagrant is not for managing machines, Vagrant is for managing development environments”, Mitchell Hashimoto

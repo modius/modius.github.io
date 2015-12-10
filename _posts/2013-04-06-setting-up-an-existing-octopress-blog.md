@@ -3,7 +3,7 @@ layout: post
 title: "Setting Up an Existing Octopress Blog"
 date: 2013-04-06 13:32
 comments: true
-categories: octopress
+tags: octopress
 ---
 
 Once you have your Octopress blog in place, you might wonder how you start contributing from another computer; either yours or a friends.

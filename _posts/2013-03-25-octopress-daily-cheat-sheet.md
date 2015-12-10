@@ -3,7 +3,8 @@ layout: post
 title: "octopress blog daily cheat sheet"
 date: 2013-03-25 16:14
 comments: true
-categories: octopress
+tags: ['notes']
+tags: ['octopress', 'ruby']
 ---
 
 Assumes you have a fully functional Octopress blogging environment. This cheat sheet is a one page reminder of how to generate a blog post, and the markup for the default plugins.

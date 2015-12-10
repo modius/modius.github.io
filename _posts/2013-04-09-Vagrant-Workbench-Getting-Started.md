@@ -3,7 +3,7 @@ layout: post
 title: "Vagrant Workbench: Getting Started"
 date: 2013-04-08 14:27
 comments: true
-categories: vagrant chef berkshelf railo
+tags: vagrant chef berkshelf railo
 ---
 
 I'm in search of the perfect development environment. It's something that runs anywhere (Windows, OSX, Linux), runs a complete production ready stack, is a doddle to set up, can be completely packed into version control and delivered to a friend at a moments notice.

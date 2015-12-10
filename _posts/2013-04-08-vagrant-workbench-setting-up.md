@@ -3,7 +3,7 @@ layout: post
 title: "Vagrant Workbench: Setting Up"
 date: 2013-04-09 23:52
 comments: true
-categories: vagrant chef berkshelf railo
+tags: vagrant chef berkshelf railo
 ---
 
 The guide setup assumes you're running a relatively modern version of OSX. But if you can get your non-OSX environment into shape, you should be able to follow along with the rest of the guide quite easily.
