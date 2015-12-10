@@ -15,14 +15,12 @@ You need to setup Octopress for each computer but not from scratch. Clone your r
 ``` bash 
 $ git clone git@github.com:usr/usr.github.com.git
 $ cd usr.github.com
-usr.github.com$ git checkout source
-usr.github.com$ mkdir _deploy
-usr.github.com$ cd _deploy
-usr.github.com/_deploy$ git init
-usr.github.com/_deploy$ git remote add origin git@github.com:usr/usr.github.com.git
-usr.github.com/_deploy$ git pull origin master
-usr.github.com/_deploy$ cd ..
-usr.github.com$
+$ git checkout source
+$ mkdir _deploy
+$ cd _deploy
+$ git init
+$ git remote add origin git@github.com:usr/usr.github.com.git
+$ git pull origin master
 ```
 
 All done. Courtesy of [code.dblock.org](http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one)
