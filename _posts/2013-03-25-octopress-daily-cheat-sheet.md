@@ -3,8 +3,7 @@ layout: post
 title: "octopress blog daily cheat sheet"
 date: 2013-03-25 16:14
 comments: true
-tags: ['notes']
-tags: ['octopress', 'ruby']
+tags: ['notes', 'octopress', 'ruby']
 ---
 
 Assumes you have a fully functional Octopress blogging environment. This cheat sheet is a one page reminder of how to generate a blog post, and the markup for the default plugins.
@@ -102,5 +101,4 @@ Surround your paragraph with the pull quote tags. Then when you come to
 the text you want to pull, { " surround it like this "} and that's all there is to it.
 { % endpullquote %}
 ```
-
 
