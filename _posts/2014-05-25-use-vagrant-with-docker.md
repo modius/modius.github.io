@@ -32,6 +32,6 @@ Plus there’s the convenience of having the same `vagrant up` workflow availabl
 - [Docker: Getting Started](https://www.docker.io/gettingstarted/)
 - [Vagrant Docker Provisioner](http://docs.vagrantup.com/v2/docker/basics.html)
 - [Vagrant Docker Provider](http://docs.vagrantup.com/v2/docker/basics.html)
-- [Docker Cheat Sheet](https://gist.github.com/wsargent/7049221)
+- [Docker Cheat Sheet](https://github.com/wsargent/docker-cheat-sheet)
 
 Enjoy!
