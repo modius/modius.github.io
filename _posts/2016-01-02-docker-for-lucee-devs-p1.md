@@ -28,7 +28,7 @@ The Docker machine is a quasi-virtualisation environment that runs your applicat
 
 ## Daemon Workbench
 
-Docker has recently released the [Docker Toolbox](https://www.docker.com/docker-toolbox) to help get development environments up.  We still prefer to run our own environment and this tutorial is based on that approach.  As Docker's native tools improve, we may adjust to use more of their generic offering; docker machine, docker compose, etc.
+Docker has recently released the [Docker Toolbox](https://www.docker.com/docker-toolbox) to help get development environments up.  We still prefer to run our own environment and this tutorial is based on that approach.  As Docker's native tools improve, we will adjust to use more of their generic offering; docker machine, docker compose, etc.
 
 We use Vagrant to build and provision a VM running Docker. And we use the Docker provider in Vagrant to build and run containers.  Docker native tools can accomplish the same thing, but so far we've found this approach simpler to get people new to Docker up and running.  You need to understand less to get going, plus we automatically provision some nice additional features like hostnames and stats.
 
@@ -82,3 +82,5 @@ Test the admin at: <http://lucee.dev/lucee/admin/server.cfm>
 The project is configured with a Docker volume that maps that code base into the container, so lets test that by making some simple changes to the `./code/index.cfm` or adding a new template; whatever works for you. Check that you can see those changes reflected in the web browser when you reload.
 
 With any luck you should have a fully functional test project.  Next step is to copy the template, examine the structure and get a real project up and running.
+
+> Follows on to [Docker for Lucee Developers: Part 2]({% post_url 2016-01-03-docker-for-lucee-devs-p2 %})
