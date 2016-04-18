@@ -17,7 +17,7 @@ You'll need to set up a trial account at https://www.datadoghq.com/ to get your 
 
 You can add a utility stack to your Docker Cloud set up that automatically deploys the monitoring agent as a container on every node. Not sure what the original [tutum container](https://github.com/tutumcloud/datadog-agent) offers beyond metadata so here is my stackfile for datadog using their agent container directly:
 
-```
+```yaml
 datadog:
   image: 'datadog/docker-dd-agent:latest'
   deployment_strategy: every_node
