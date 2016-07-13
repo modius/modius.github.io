@@ -189,3 +189,5 @@ root@d2673526a6dd:/usr/local/tomcat/bin# ./shutdown.sh
 root@d2673526a6dd:/usr/local/tomcat/bin# ./startup.sh
 Tomcat started.
 ```
+
+**h/t Daemonite @blair for doing most of the heavy lifting ;)**
