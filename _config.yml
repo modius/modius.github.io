@@ -45,11 +45,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - Gruntfile.js
-  - package.json
   - node_modules
-  - Rakefile.rb
-  - _templates
+  - inbox
 
 plugins:
   - jekyll-sitemap
