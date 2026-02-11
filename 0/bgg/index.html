@@ -3,379 +3,71 @@ layout: zero
 title: "BGG@SEA 2026 — New Zealand"
 sitemap: false
 ---
-
 <style>
-  .trip-header { text-align: center; margin-bottom: 2rem; }
-  .trip-header h1 { font-family: 'Inter', sans-serif; font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
-  .trip-header .sub { color: #888; font-size: 1rem; }
-  .trip-header .countdown { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); border-radius: 999px; padding: 0.4rem 1.2rem; margin-top: 0.75rem; }
-  .trip-header .countdown .num { font-size: 1.3rem; font-weight: 700; color: #fca5a5; }
-  .trip-header .countdown .label { font-size: 0.8rem; color: #fca5a5; }
-
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
-  .stat { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; padding: 1rem; text-align: center; }
-  .stat .num { font-size: 1.5rem; font-weight: 700; }
-  .stat .label { font-size: 0.7rem; color: #888; margin-top: 0.25rem; }
-  .stat.sea .num { color: #22d3ee; }
-  .stat.port .num { color: #60a5fa; }
-  .stat.scenic .num { color: #34d399; }
-  .stat.ports .num { color: #fbbf24; }
-
-  .timeline { display: flex; gap: 2px; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; }
-  .timeline .bar { flex: 1; text-align: center; cursor: default; }
-  .timeline .bar .top { height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.7); }
-  .timeline .bar .bottom { height: 5px; }
-  .timeline .bar.sea .top { background: #0e7490; }
-  .timeline .bar.port .top { background: #3b82f6; }
-  .timeline .bar.scenic .top { background: #10b981; }
-  .timeline .bar .bgg { background: #f97316; }
-  .timeline .bar .no-bgg { background: #1a1a1a; }
-
-  .section { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
-  .section h2 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
-  .section h2.orange { color: #fdba74; }
-  .section h2.amber { color: #fcd34d; }
-  .section h2.blue { color: #93c5fd; }
-  .section h2.teal { color: #5eead4; }
-  .section.orange-border { border-color: rgba(249,115,22,0.3); }
-  .section.amber-border { border-color: rgba(245,158,11,0.3); }
-  .section.blue-border { border-color: rgba(59,130,246,0.3); }
-  .section.teal-border { border-color: rgba(20,184,166,0.3); }
-
-  .day-card { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
-  .day-header { padding: 1rem 1.25rem; }
-  .day-header .title { font-weight: 700; color: #fff; font-size: 0.95rem; }
-  .day-header .meta { font-size: 0.8rem; color: #888; margin-top: 0.2rem; }
-  .day-badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem; }
-  .badge { font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 999px; border: 1px solid; display: inline-block; }
-  .badge.type-port { background: rgba(59,130,246,0.2); color: #93c5fd; border-color: rgba(59,130,246,0.3); }
-  .badge.type-sea { background: rgba(6,182,212,0.2); color: #67e8f9; border-color: rgba(6,182,212,0.3); }
-  .badge.type-scenic { background: rgba(16,185,129,0.2); color: #6ee7b7; border-color: rgba(16,185,129,0.3); }
-  .badge.type-prep { background: rgba(234,179,8,0.2); color: #fde68a; border-color: rgba(234,179,8,0.3); }
-  .badge.bgg { background: rgba(249,115,22,0.15); color: #fdba74; border-color: rgba(249,115,22,0.3); }
-  .badge.cruise { background: rgba(239,68,68,0.15); color: #fca5a5; border-color: rgba(239,68,68,0.3); }
-  .badge.work { background: rgba(236,72,153,0.15); color: #f9a8d4; border-color: rgba(236,72,153,0.3); }
-  .badge.birthday { background: rgba(34,197,94,0.15); color: #86efac; border-color: rgba(34,197,94,0.3); }
-
-  .day-body { padding: 0 1.25rem 1rem; border-top: 1px solid #222; padding-top: 0.75rem; }
-  .day-body .desc { font-size: 0.85rem; color: #ccc; line-height: 1.55; margin-bottom: 0.75rem; }
-  .todo-group { margin-bottom: 0.75rem; }
-  .todo-group .group-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
-  .todo-group .group-label .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
-  .todo-group.bgg .group-label { color: #fdba74; }
-  .todo-group.bgg .dot { background: #f97316; }
-  .todo-group.cruise .group-label { color: #93c5fd; }
-  .todo-group.cruise .dot { background: #3b82f6; }
-  .todo-group.key .group-label { color: #fcd34d; }
-  .todo-group.key .dot { background: #f59e0b; }
-  .todo-group.work .group-label { color: #f9a8d4; }
-  .todo-group.work .dot { background: #ec4899; }
-  .todo-item { font-size: 0.82rem; color: #ccc; padding: 0.15rem 0 0.15rem 1rem; display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
-  .todo-item .time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #666; background: #111; padding: 0.1rem 0.4rem; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
-
-  .perk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-  .perk { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
-  .perk .icon { font-size: 1.1rem; }
-  .perk .name { font-size: 0.82rem; color: #fff; font-weight: 500; }
-  .perk .when { font-size: 0.7rem; color: #666; }
-
-  .info-grid { display: grid; gap: 0.25rem; font-size: 0.85rem; }
-  .info-row { display: flex; justify-content: space-between; }
-  .info-row .k { color: #666; }
-  .info-row .v { color: #ddd; text-align: right; }
-
-  .contacts { font-size: 0.82rem; }
-  .contacts li { margin-bottom: 0.35rem; color: #ccc; }
-
-  @media (max-width: 600px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .perk-grid { grid-template-columns: 1fr; }
-    .trip-header h1 { font-size: 1.4rem; }
-  }
+  .bgg-landing { text-align: center; padding: 2rem 0; }
+  .bgg-landing h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+  .bgg-landing .sub { color: #888; font-size: 1.05rem; margin-bottom: 1rem; }
+  .bgg-landing .countdown { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); border-radius: 999px; padding: 0.4rem 1.2rem; margin-bottom: 2.5rem; }
+  .bgg-landing .countdown .num { font-size: 1.4rem; font-weight: 700; color: #fca5a5; }
+  .bgg-landing .countdown .label { font-size: 0.85rem; color: #fca5a5; }
+  .bgg-links { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 600px; margin: 0 auto 2rem; }
+  .bgg-link { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 1.5rem; text-decoration: none; transition: border-color 0.2s, transform 0.1s; display: block; }
+  .bgg-link:hover { border-color: #666; transform: translateY(-2px); }
+  .bgg-link .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .bgg-link .name { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
+  .bgg-link .desc { font-size: 0.82rem; color: #888; line-height: 1.4; }
+  .bgg-link.schedule { border-color: rgba(6,182,212,0.3); }
+  .bgg-link.schedule:hover { border-color: rgba(6,182,212,0.6); }
+  .bgg-link.checklist { border-color: rgba(249,115,22,0.3); }
+  .bgg-link.checklist:hover { border-color: rgba(249,115,22,0.6); }
+  .bgg-details { max-width: 600px; margin: 0 auto; background: #1a1a1a; border: 1px solid #222; border-radius: 12px; padding: 1.25rem; }
+  .bgg-details h2 { font-size: 0.9rem; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .bgg-details .info-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.3rem 0; }
+  .bgg-details .info-row .k { color: #666; }
+  .bgg-details .info-row .v { color: #ddd; text-align: right; }
+  @media (max-width: 500px) { .bgg-links { grid-template-columns: 1fr; } }
 </style>
 
-<div class="trip-header">
-  <h1>BGG@SEA 2026 — New Zealand</h1>
+<div class="bgg-landing">
+  <h1>BGG@SEA 2026</h1>
   <div class="sub">Anthem of the Seas &middot; 12 Nights &middot; Sydney Roundtrip</div>
   <div class="countdown">
     <span class="num" id="daysUntil"></span>
-    <span class="label">days until departure</span>
+    <span class="label" id="countdownLabel">days until departure</span>
   </div>
 </div>
 
-<div class="stats">
-  <div class="stat sea"><div class="num">5</div><div class="label">Sea Days</div></div>
-  <div class="stat port"><div class="num">5</div><div class="label">Port Days</div></div>
-  <div class="stat scenic"><div class="num">1</div><div class="label">Scenic Cruising</div></div>
-  <div class="stat ports"><div class="num">5</div><div class="label">NZ Ports</div></div>
+<div class="bgg-links">
+  <a href="/0/bgg/schedule/" class="bgg-link schedule">
+    <div class="icon">🗺️</div>
+    <div class="name">Interactive Schedule</div>
+    <div class="desc">Day-by-day itinerary with filters, port guides, and all the details.</div>
+  </a>
+  <a href="/0/bgg/checklist/" class="bgg-link checklist">
+    <div class="icon">✅</div>
+    <div class="name">Preparation Checklist</div>
+    <div class="desc">Everything to do before sailing &mdash; check-in, packing, documents, decisions.</div>
+  </a>
 </div>
 
-<div class="timeline">
-  <div class="bar port"><div class="top">1</div><div class="bottom bgg"></div></div>
-  <div class="bar sea"><div class="top">2</div><div class="bottom bgg"></div></div>
-  <div class="bar sea"><div class="top">3</div><div class="bottom no-bgg"></div></div>
-  <div class="bar scenic"><div class="top">4</div><div class="bottom no-bgg"></div></div>
-  <div class="bar port"><div class="top">5</div><div class="bottom no-bgg"></div></div>
-  <div class="bar port"><div class="top">6</div><div class="bottom no-bgg"></div></div>
-  <div class="bar port"><div class="top">7</div><div class="bottom bgg"></div></div>
-  <div class="bar port"><div class="top">8</div><div class="bottom no-bgg"></div></div>
-  <div class="bar port"><div class="top">9</div><div class="bottom bgg"></div></div>
-  <div class="bar sea"><div class="top">10</div><div class="bottom no-bgg"></div></div>
-  <div class="bar sea"><div class="top">11</div><div class="bottom bgg"></div></div>
-  <div class="bar sea"><div class="top">12</div><div class="bottom bgg"></div></div>
-  <div class="bar port"><div class="top">13</div><div class="bottom no-bgg"></div></div>
-</div>
-
-<!-- Day-by-Day Itinerary -->
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 1 — Embarkation</div>
-    <div class="meta">Feb 15 (Sun) &middot; Sydney, Australia</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">Departs 4:00pm</span><span class="badge bgg">Check-in Deck 13 AFT</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Arrive at port with passport + SetSail Pass. Report to Muster Station D1. The Key welcome lunch noon&ndash;1:30pm Deck 4. Cabins from ~1pm. Visit BGG@SEA Conference Centre Deck 13 AFT for goodies and to verify dining assignment with Jeff/Kristine.</p>
-    <div class="todo-group cruise"><div class="group-label"><span class="dot"></span>Cruise</div>
-      <div class="todo-item"><span>Board ship with passport + SetSail Pass</span><span class="time">2:30pm</span></div>
-      <div class="todo-item"><span>Muster Station check-in (D1)</span></div>
-      <div class="todo-item"><span>Cabins open &mdash; collect SeaPass cards</span><span class="time">~1:00pm</span></div>
-    </div>
-    <div class="todo-group key"><div class="group-label"><span class="dot"></span>The Key</div>
-      <div class="todo-item"><span>Welcome lunch &mdash; Deck 4</span><span class="time">12:00&ndash;1:30pm</span></div>
-    </div>
-    <div class="todo-group bgg"><div class="group-label"><span class="dot"></span>BGG@SEA</div>
-      <div class="todo-item"><span>Visit Conference Centre Deck 13 AFT</span></div>
-      <div class="todo-item"><span>Collect goodies from Jeff/Kristine</span></div>
-      <div class="todo-item"><span>Check dining table assignment</span><span class="time">Before dinner</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 2 — At Sea</div>
-    <div class="meta">Feb 16 (Mon) &middot; Tasman Sea</div>
-    <div class="day-badges"><span class="badge type-sea">Sea Day</span><span class="badge bgg">Welcome Reception 7&ndash;8pm</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">First full sea day. Explore the ship, browse the game library (300+ games!), and start gaming. Welcome Reception in the Music Hall with complimentary appetisers and drinks.</p>
-    <div class="todo-group bgg"><div class="group-label"><span class="dot"></span>BGG@SEA</div>
-      <div class="todo-item"><span>Welcome Reception &mdash; Music Hall</span><span class="time">7:00&ndash;8:00pm</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 3 — At Sea</div>
-    <div class="meta">Feb 17 (Tue) &middot; Tasman Sea</div>
-    <div class="day-badges"><span class="badge type-sea">Sea Day</span><span class="badge work">Exec Catchup</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Second sea day. Full day of open gaming. Great day for longer, heavier games. Ship transitioning to NZ time.</p>
-    <div class="todo-group work"><div class="group-label"><span class="dot"></span>RealEasy</div>
-      <div class="todo-item"><span>Exec Catchup</span><span class="time">10:00am AEDT</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 4 — Scenic Cruising</div>
-    <div class="meta">Feb 18 (Wed) &middot; Milford &middot; Doubtful &middot; Dusky Sound</div>
-    <div class="day-badges"><span class="badge type-scenic">Scenic</span><span class="badge cruise">All three fiords!</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">All three fiords in one spectacular day! Milford Sound, Doubtful Sound (deeper, more remote), and Dusky Sound. Stay on deck &mdash; no disembarkation. Can be choppy &mdash; have seasickness remedies ready.</p>
-    <div class="todo-group cruise"><div class="group-label"><span class="dot"></span>Cruise</div>
-      <div class="todo-item"><span>Be on deck for Milford Sound</span></div>
-      <div class="todo-item"><span>Doubtful Sound scenic cruising</span></div>
-      <div class="todo-item"><span>Dusky Sound scenic cruising</span></div>
-      <div class="todo-item"><span>Have seasickness remedies ready</span></div>
-      <div class="todo-item"><span>Confirm NZTD submitted before Dunedin tomorrow</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 5 — Dunedin</div>
-    <div class="meta">Feb 19 (Thu) &middot; Port Chalmers, NZ</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">8:15am&ndash;5:30pm</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">First NZ port. Scottish heritage city &mdash; Larnach Castle, Otago Peninsula wildlife (penguins, albatross, seals), Taieri Gorge Railway. Port Chalmers is 20min from Dunedin centre. Baldwin Street (world's steepest), Botanic Gardens.</p>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 6 — Christchurch</div>
-    <div class="meta">Feb 20 (Fri) &middot; Lyttelton, NZ</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">8:45am&ndash;5:30pm</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Rebuilt after 2011 earthquake. Christchurch Gondola, Punting on the Avon, Canterbury Museum (free), Botanic Gardens. Akaroa day trip for Hector's dolphins (world's rarest). Lyttelton itself is arty with great caf&eacute;s.</p>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 7 — Wellington</div>
-    <div class="meta">Feb 21 (Sat) &middot; Wellington, NZ</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">7:45am&ndash;4:30pm</span><span class="badge bgg">LOTR Tour + M&#257;ori Lunch</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">NZ's capital &mdash; walkable from terminal. LOTR &amp; Weta Workshop Tour departs 8am (booked!). Te Papa museum (free, world-class), Cable Car, Cuba Street. Ship departs 4:30pm &mdash; bus return from M&#257;ori Lunch at 4:15pm is tight!</p>
-    <div class="todo-group cruise"><div class="group-label"><span class="dot"></span>Cruise</div>
-      <div class="todo-item"><span>LOTR &amp; Weta Workshop Tour (booked)</span><span class="time">8:00am</span></div>
-    </div>
-    <div class="todo-group bgg"><div class="group-label"><span class="dot"></span>BGG@SEA</div>
-      <div class="todo-item"><span>Arrive Te Papa for M&#257;ori Lunch</span><span class="time">1:00pm</span></div>
-      <div class="todo-item"><span>M&#257;ori Lunch with game designers</span><span class="time">1:30&ndash;2:30pm</span></div>
-      <div class="todo-item"><span>Bus return to port &mdash; 15min buffer!</span><span class="time">4:15pm</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 8 — Napier</div>
-    <div class="meta">Feb 22 (Sun) &middot; Napier, NZ</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">8:45am&ndash;4:00pm</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Art Deco capital &mdash; rebuilt after 1931 earthquake. Self-guided Art Deco walk (free, grab map from Art Deco Trust). Cape Kidnappers gannet colony. Hawke's Bay wineries. National Aquarium has kiwi + penguins.</p>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 9 — Tauranga</div>
-    <div class="meta">Feb 23 (Mon) &middot; Tauranga, NZ</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">2:15pm&ndash;7:00pm only!</span><span class="badge birthday">Happy birthday!</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Happy birthday Geoff! Last NZ port &mdash; afternoon only. Morning gaming on board, then Mount Maunganui hike (5min from port, 1&ndash;1.5hrs, 360&deg; views), soak in Mount Hot Pools geothermal spa at the base, fish &amp; chips on the wharf.</p>
-    <div class="todo-group bgg"><div class="group-label"><span class="dot"></span>BGG@SEA</div>
-      <div class="todo-item"><span>Morning gaming &mdash; birthday session!</span><span class="time">Morning</span></div>
-    </div>
-    <div class="todo-group cruise"><div class="group-label"><span class="dot"></span>Cruise</div>
-      <div class="todo-item"><span>Mount Maunganui summit hike</span><span class="time">From 2:15pm</span></div>
-      <div class="todo-item"><span>Mount Hot Pools &mdash; geothermal soak + birthday massage</span><span class="time">~4:00pm</span></div>
-      <div class="todo-item"><span>Bobby's fish &amp; chips on the wharf</span><span class="time">~5:30pm</span></div>
-      <div class="todo-item"><span>Back on board</span><span class="time">By 7:00pm</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 10 — At Sea</div>
-    <div class="meta">Feb 24 (Tue) &middot; Tasman Sea</div>
-    <div class="day-badges"><span class="badge type-sea">Sea Day</span><span class="badge work">Exec Catchup</span></div>
-  </div>
-  <div class="day-body">
-    <div class="todo-group work"><div class="group-label"><span class="dot"></span>RealEasy</div>
-      <div class="todo-item"><span>Exec Catchup</span><span class="time">10:00am AEDT</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 11 — At Sea</div>
-    <div class="meta">Feb 25 (Wed) &middot; Tasman Sea</div>
-    <div class="day-badges"><span class="badge type-sea">Sea Day</span><span class="badge bgg">Farewell Reception 4&ndash;5pm</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Full day of open gaming. BGG@SEA Farewell Reception in the Music Hall &mdash; last official convention event.</p>
-    <div class="todo-group bgg"><div class="group-label"><span class="dot"></span>BGG@SEA</div>
-      <div class="todo-item"><span>Farewell Reception &mdash; Music Hall</span><span class="time">4:00&ndash;5:00pm</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 12 — At Sea</div>
-    <div class="meta">Feb 26 (Thu) &middot; Tasman Sea</div>
-    <div class="day-badges"><span class="badge type-sea">Sea Day</span><span class="badge cruise">Pack tonight</span></div>
-  </div>
-  <div class="day-body">
-    <p class="desc">Final sea day &mdash; last chance for big games! Return all borrowed library games. Pack luggage in the evening. The Key gives priority disembarkation + priority luggage tags.</p>
-  </div>
-</div>
-
-<div class="day-card">
-  <div class="day-header">
-    <div class="title">Day 13 — Home</div>
-    <div class="meta">Feb 27 (Fri) &middot; Sydney, Australia</div>
-    <div class="day-badges"><span class="badge type-port">Port</span><span class="badge cruise">Arrives 6:30am</span></div>
-  </div>
-  <div class="day-body">
-    <div class="todo-group key"><div class="group-label"><span class="dot"></span>The Key</div>
-      <div class="todo-item"><span>Farewell breakfast &mdash; Deck 4</span><span class="time">6:00&ndash;8:00am</span></div>
-      <div class="todo-item"><span>Priority disembarkation</span><span class="time">Morning</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- Perks & Info -->
-
-<div class="section amber-border" style="margin-top: 1.5rem;">
-  <h2 class="amber">The Key &mdash; VIP Perks</h2>
-  <div class="perk-grid">
-    <div class="perk"><span class="icon">&#x1F4F6;</span><div><div class="name">VOOM Internet</div><div class="when">All cruise &middot; 1 device</div></div></div>
-    <div class="perk"><span class="icon">&#x1F37D;</span><div><div class="name">Welcome Lunch</div><div class="when">Day 1 &middot; Deck 4</div></div></div>
-    <div class="perk"><span class="icon">&#x1F3AD;</span><div><div class="name">VIP Show Seating</div><div class="when">All shows</div></div></div>
-    <div class="perk"><span class="icon">&#x1F3A2;</span><div><div class="name">Fast Lane Activities</div><div class="when">All cruise</div></div></div>
-    <div class="perk"><span class="icon">&#x1F6A4;</span><div><div class="name">Priority Tender</div><div class="when">NZ ports</div></div></div>
-    <div class="perk"><span class="icon">&#x1F9D6;</span><div><div class="name">Spa Credit ($60)</div><div class="when">One-time &middot; $250+ purchase</div></div></div>
-    <div class="perk"><span class="icon">&#x1F9F3;</span><div><div class="name">Priority Disembark</div><div class="when">Day 13</div></div></div>
-    <div class="perk"><span class="icon">&#x2615;</span><div><div class="name">Farewell Breakfast</div><div class="when">Day 13 &middot; Deck 4</div></div></div>
-  </div>
-</div>
-
-<div class="section teal-border">
-  <h2 class="teal">Sea Class &mdash; Junior Suite Perks</h2>
-  <div class="perk-grid">
-    <div class="perk"><span class="icon">&#x1F37D;</span><div><div class="name">Coastal Kitchen Dinner</div><div class="when">Every evening &middot; suite-exclusive</div></div></div>
-    <div class="perk"><span class="icon">&#x1F9F4;</span><div><div class="name">Luxury Amenities</div><div class="when">L'Occitane / Ferragamo</div></div></div>
-    <div class="perk"><span class="icon">&#x1F458;</span><div><div class="name">Bathrobes</div><div class="when">In cabin</div></div></div>
-    <div class="perk"><span class="icon">&#x1F6CF;</span><div><div class="name">Memory Foam Mattress</div><div class="when">Pillow-top upgrade</div></div></div>
-  </div>
-</div>
-
-<div class="section">
-  <h2 style="color: #fff;">Booking Details</h2>
-  <div class="info-grid">
-    <div class="info-row"><span class="k">Booking ID</span><span class="v">6044580</span></div>
-    <div class="info-row"><span class="k">Cabin</span><span class="v">Junior Suite &middot; Deck 6, Stateroom 6638</span></div>
-    <div class="info-row"><span class="k">Muster Station</span><span class="v">D1</span></div>
-    <div class="info-row"><span class="k">Badge</span><span class="v">#175 &mdash; Geoffrey Bowers</span></div>
-    <div class="info-row"><span class="k">Convention</span><span class="v">Game Room Access (paid)</span></div>
-    <div class="info-row"><span class="k">Add-ons</span><span class="v">The Key (VIP)</span></div>
-    <div class="info-row"><span class="k">Excursion</span><span class="v">LOTR &amp; Weta Tour &middot; Wellington &middot; $219</span></div>
-  </div>
-</div>
-
-<div class="section">
-  <h2 style="color: #fff;">Useful Contacts</h2>
-  <ul class="contacts">
-    <li><strong>BGG@SEA Discord:</strong> <a href="https://discord.gg/hWFMq94BH8">discord.gg/hWFMq94BH8</a></li>
-    <li><strong>BGG@SEA Organisers:</strong> info@tabletop.events</li>
-    <li><strong>Jeff (BGG@SEA):</strong> jeff@qwyx.events</li>
-    <li><strong>Royal Caribbean:</strong> 1800 754 500</li>
-    <li><strong>Chubb Insurance:</strong> 1800 139 149 (Mon&ndash;Fri 8:30am&ndash;5pm)</li>
-    <li><strong>NZTD Web:</strong> <a href="https://www.travellerdeclaration.govt.nz/cruise">travellerdeclaration.govt.nz/cruise</a></li>
-  </ul>
+<div class="bgg-details">
+  <h2>Quick Reference</h2>
+  <div class="info-row"><span class="k">Booking ID</span><span class="v">6044580</span></div>
+  <div class="info-row"><span class="k">Cabin</span><span class="v">Junior Suite &middot; Deck 6, 6638</span></div>
+  <div class="info-row"><span class="k">Muster Station</span><span class="v">D1</span></div>
+  <div class="info-row"><span class="k">Badge</span><span class="v">#175 &mdash; Geoffrey Bowers</span></div>
+  <div class="info-row"><span class="k">Convention</span><span class="v">Game Room Access</span></div>
+  <div class="info-row"><span class="k">Add-ons</span><span class="v">The Key (VIP)</span></div>
+  <div class="info-row"><span class="k">Excursion</span><span class="v">LOTR &amp; Weta &middot; Wellington &middot; $219</span></div>
 </div>
 
 <script>
   var sail = new Date(2026, 1, 15);
   var now = new Date();
   var diff = Math.ceil((sail - now) / (1000 * 60 * 60 * 24));
-  document.getElementById('daysUntil').textContent = diff > 0 ? diff : (diff === 0 ? 'Today!' : 'Bon voyage!');
+  var el = document.getElementById('daysUntil');
+  var lbl = document.getElementById('countdownLabel');
+  if (diff > 0) { el.textContent = diff; }
+  else if (diff === 0) { el.textContent = "Today!"; lbl.textContent = ""; }
+  else { el.textContent = "Bon voyage!"; lbl.textContent = ""; }
 </script>

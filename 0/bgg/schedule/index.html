@@ -1,0 +1,905 @@
+---
+layout: zero
+title: "BGG@SEA 2026 — Schedule"
+sitemap: false
+---
+<style>
+  /* --- Reset for this page --- */
+  .sch * { box-sizing: border-box; }
+  .sch { font-family: 'Inter', sans-serif; color: #ccc; max-width: 100%; }
+
+  /* --- Back link --- */
+  .sch-back { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.82rem; color: #666; text-decoration: none; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .sch-back:hover { color: #999; }
+
+  /* --- Header --- */
+  .sch-hdr { text-align: center; margin-bottom: 2rem; }
+  .sch-hdr h1 { font-size: 1.5rem; font-weight: 700; color: #fff; margin: 0 0 0.2rem; }
+  .sch-hdr .sub { color: #888; font-size: 0.9rem; margin-bottom: 1rem; }
+  .sch-countdown { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); border-radius: 999px; padding: 0.35rem 1rem; }
+  .sch-countdown .num { font-size: 1.3rem; font-weight: 700; color: #fca5a5; }
+  .sch-countdown .lbl { font-size: 0.8rem; color: #fca5a5; }
+
+  /* --- Stats grid --- */
+  .sch-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 1.5rem; }
+  .sch-stat { background: #1a1a1a; border: 1px solid #222; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; }
+  .sch-stat .val { font-size: 1.4rem; font-weight: 700; }
+  .sch-stat .lbl { font-size: 0.68rem; color: #888; margin-top: 0.1rem; }
+  .stat-cyan .val { color: #22d3ee; }
+  .stat-blue .val { color: #60a5fa; }
+  .stat-emerald .val { color: #34d399; }
+  .stat-yellow .val { color: #fbbf24; }
+
+  /* --- Timeline bar --- */
+  .sch-timeline { margin-bottom: 0.4rem; }
+  .tl-bar { display: flex; border-radius: 8px; overflow: hidden; cursor: pointer; height: 28px; }
+  .tl-seg { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 600; color: rgba(255,255,255,0.7); transition: opacity 0.15s; border-right: 1px solid rgba(0,0,0,0.3); }
+  .tl-seg:last-child { border-right: none; }
+  .tl-seg:hover { opacity: 0.8; }
+  .tl-seg.active { outline: 2px solid #fff; outline-offset: -2px; z-index: 1; }
+  .tl-seg-port { background: #3b82f6; }
+  .tl-seg-sea { background: #0891b2; }
+  .tl-seg-scenic { background: #059669; }
+  .tl-seg-prep { background: #ca8a04; }
+  .tl-bgg-stripe { position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: #f97316; }
+  .tl-legend { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; margin-bottom: 1.5rem; }
+  .tl-legend-item { display: flex; align-items: center; gap: 0.3rem; font-size: 0.65rem; color: #888; }
+  .tl-legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+  /* --- Filter buttons --- */
+  .sch-filters { margin-bottom: 0.6rem; }
+  .sch-filters-label { font-size: 0.68rem; color: #666; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 0.4rem; }
+  .sch-filter-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem; }
+  .sch-fbtn { background: #1a1a1a; border: 1px solid #333; border-radius: 999px; padding: 0.3rem 0.7rem; font-size: 0.72rem; font-weight: 500; color: #888; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .sch-fbtn:hover { border-color: #555; color: #bbb; }
+  .sch-fbtn.active { background: #fff; color: #111; border-color: #fff; }
+  .sch-fbtn-count { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; opacity: 0.7; margin-left: 0.2rem; }
+
+  /* Category filter active states */
+  .sch-fbtn.cat-bgg.active { background: #f97316; border-color: #f97316; color: #fff; }
+  .sch-fbtn.cat-cruise.active { background: #3b82f6; border-color: #3b82f6; color: #fff; }
+  .sch-fbtn.cat-key.active { background: #f59e0b; border-color: #f59e0b; color: #111; }
+  .sch-fbtn.cat-work.active { background: #ec4899; border-color: #ec4899; color: #fff; }
+
+  /* --- Day cards --- */
+  .sch-day { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; margin-bottom: 0.6rem; overflow: hidden; transition: border-color 0.15s; }
+  .sch-day:hover { border-color: #333; }
+  .sch-day-hdr { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; cursor: pointer; user-select: none; }
+  .sch-day-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .sch-day-info { flex: 1; min-width: 0; }
+  .sch-day-title { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+  .sch-day-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
+  .sch-day-badge { font-size: 0.62rem; font-weight: 600; padding: 0.12rem 0.45rem; border-radius: 999px; }
+  .badge-port { background: rgba(59,130,246,0.2); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+  .badge-sea { background: rgba(8,145,178,0.2); color: #22d3ee; border: 1px solid rgba(8,145,178,0.3); }
+  .badge-scenic { background: rgba(5,150,105,0.2); color: #34d399; border: 1px solid rgba(5,150,105,0.3); }
+  .badge-prep { background: rgba(202,138,4,0.2); color: #fbbf24; border: 1px solid rgba(202,138,4,0.3); }
+  .sch-day-alerts { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.15rem; }
+  .sch-alert { font-size: 0.62rem; padding: 0.1rem 0.4rem; border-radius: 999px; font-weight: 500; }
+  .alert-bgg { background: rgba(249,115,22,0.15); color: #fdba74; border: 1px solid rgba(249,115,22,0.3); }
+  .alert-cruise { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+  .alert-work { background: rgba(236,72,153,0.15); color: #f9a8d4; border: 1px solid rgba(236,72,153,0.3); }
+  .alert-key { background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+  .alert-birthday { background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .sch-day-sub { font-size: 0.72rem; color: #666; margin-top: 0.1rem; }
+  .sch-day-chevron { font-size: 0.7rem; color: #666; transition: transform 0.2s; flex-shrink: 0; }
+  .sch-day.open .sch-day-chevron { transform: rotate(90deg); }
+
+  /* Day body */
+  .sch-day-body { display: none; padding: 0 1rem 1rem; }
+  .sch-day.open .sch-day-body { display: block; }
+  .sch-day-desc { font-size: 0.8rem; color: #999; margin-bottom: 0.75rem; line-height: 1.5; }
+  .sch-day-divider { border: none; border-top: 1px solid #222; margin: 0.5rem 0; }
+
+  /* Todo groups */
+  .sch-cat-group { margin-bottom: 0.6rem; }
+  .sch-cat-label { display: flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; font-weight: 600; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .sch-cat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-bgg { background: #fb923c; }
+  .dot-cruise { background: #60a5fa; }
+  .dot-key { background: #fcd34d; }
+  .dot-work { background: #f472b6; }
+  .cat-text-bgg { color: #fdba74; }
+  .cat-text-cruise { color: #93c5fd; }
+  .cat-text-key { color: #fcd34d; }
+  .cat-text-work { color: #f9a8d4; }
+
+  .sch-todo-list { list-style: none; padding: 0; margin: 0; }
+  .sch-todo-item { display: flex; align-items: flex-start; gap: 0.4rem; font-size: 0.8rem; color: #ccc; padding: 0.15rem 0; line-height: 1.4; }
+  .sch-todo-bullet { color: #555; margin-top: 0.15rem; flex-shrink: 0; font-size: 0.5rem; }
+  .sch-todo-text { flex: 1; }
+  .sch-todo-time { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; background: #222; color: #888; padding: 0.1rem 0.35rem; border-radius: 4px; white-space: nowrap; margin-left: 0.3rem; }
+
+  /* --- Section cards --- */
+  .sch-section { background: #1a1a1a; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+  .sch-section h2 { font-size: 0.95rem; font-weight: 700; color: #fff; margin: 0 0 0.15rem; }
+  .sch-section .section-sub { font-size: 0.75rem; color: #666; margin-bottom: 0.75rem; }
+  .sch-section-bgg { border: 1px solid rgba(249,115,22,0.3); }
+  .sch-section-key { border: 1px solid rgba(245,158,11,0.3); }
+  .sch-section-suite { border: 1px solid rgba(20,184,166,0.3); }
+  .sch-section-ports { border: 1px solid rgba(59,130,246,0.3); }
+
+  /* Highlights list */
+  .sch-hl-list { list-style: none; padding: 0; margin: 0; }
+  .sch-hl-list li { display: flex; align-items: flex-start; gap: 0.4rem; font-size: 0.8rem; color: #ccc; padding: 0.25rem 0; line-height: 1.4; }
+  .sch-hl-list li .hl-icon { flex-shrink: 0; }
+  .sch-hl-time { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; background: #222; color: #888; padding: 0.1rem 0.35rem; border-radius: 4px; margin-left: 0.3rem; }
+
+  /* Perks grid */
+  .sch-perks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+  .sch-perk { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #ccc; padding: 0.3rem 0; }
+  .sch-perk-icon { font-size: 0.9rem; flex-shrink: 0; }
+
+  /* Port guide */
+  .sch-port { background: #161616; border: 1px solid #222; border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem; }
+  .sch-port h3 { font-size: 0.9rem; font-weight: 700; color: #fff; margin: 0 0 0.1rem; }
+  .sch-port .port-meta { font-size: 0.72rem; color: #666; margin-bottom: 0.6rem; }
+  .sch-port .port-transport { font-size: 0.78rem; color: #93c5fd; margin-bottom: 0.5rem; }
+  .sch-port-hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 0.5rem; }
+  .sch-port-hl { font-size: 0.75rem; color: #ccc; padding: 0.2rem 0; }
+  .sch-port-hl .hl-name { font-weight: 600; color: #ddd; }
+  .sch-port-hl .hl-cost { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: #34d399; margin-left: 0.25rem; }
+  .sch-port-hl .hl-note { font-size: 0.65rem; color: #666; display: block; }
+  .sch-port-dining { font-size: 0.75rem; color: #fbbf24; margin-top: 0.3rem; }
+
+  /* Booking details */
+  .sch-booking { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+  .sch-booking h2 { font-size: 0.85rem; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem; }
+  .sch-booking-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 0.25rem 0; }
+  .sch-booking-row .k { color: #666; }
+  .sch-booking-row .v { color: #ddd; text-align: right; }
+
+  /* Colour key */
+  .sch-colour-key { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+  .sch-colour-key h2 { font-size: 0.85rem; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.6rem; }
+  .sch-ck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; }
+  .sch-ck-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; }
+  .sch-ck-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* --- Responsive --- */
+  @media (max-width: 600px) {
+    .sch-stats { grid-template-columns: repeat(2, 1fr); }
+    .sch-perks-grid { grid-template-columns: 1fr; }
+    .sch-port-hl-grid { grid-template-columns: 1fr; }
+    .sch-ck-grid { grid-template-columns: 1fr; }
+    .sch-day-hdr { padding: 0.6rem 0.75rem; }
+    .sch-day-body { padding: 0 0.75rem 0.75rem; }
+    .tl-seg { font-size: 0.5rem; }
+  }
+</style>
+
+<div class="sch">
+
+  <!-- Back link -->
+  <a href="/0/bgg/" class="sch-back">&larr; BGG@SEA 2026</a>
+
+  <!-- Header -->
+  <div class="sch-hdr">
+    <h1>Interactive Schedule</h1>
+    <div class="sub">Anthem of the Seas &middot; 12 Nights &middot; Sydney Roundtrip</div>
+    <div class="sch-countdown">
+      <span class="num" id="sch-cd-num"></span>
+      <span class="lbl" id="sch-cd-lbl">days until departure</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="sch-stats">
+    <div class="sch-stat stat-cyan"><div class="val">5</div><div class="lbl">Sea Days</div></div>
+    <div class="sch-stat stat-blue"><div class="val">5</div><div class="lbl">Port Days</div></div>
+    <div class="sch-stat stat-emerald"><div class="val">1</div><div class="lbl">Scenic Cruising</div></div>
+    <div class="sch-stat stat-yellow"><div class="val">5</div><div class="lbl">NZ Ports</div></div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="sch-timeline">
+    <div class="tl-bar" id="tl-bar"></div>
+  </div>
+  <div class="tl-legend">
+    <div class="tl-legend-item"><span class="tl-legend-dot" style="background:#3b82f6"></span>Port</div>
+    <div class="tl-legend-item"><span class="tl-legend-dot" style="background:#0891b2"></span>Sea Day</div>
+    <div class="tl-legend-item"><span class="tl-legend-dot" style="background:#059669"></span>Scenic</div>
+    <div class="tl-legend-item"><span class="tl-legend-dot" style="background:#f97316"></span>BGG Event</div>
+  </div>
+
+  <!-- Day type filters -->
+  <div class="sch-filters">
+    <div class="sch-filters-label">Day Type</div>
+    <div class="sch-filter-row" id="type-filters"></div>
+  </div>
+
+  <!-- Category filters -->
+  <div class="sch-filters">
+    <div class="sch-filters-label">Category</div>
+    <div class="sch-filter-row" id="cat-filters"></div>
+  </div>
+
+  <!-- Day cards container -->
+  <div id="day-cards"></div>
+
+  <!-- BGG Convention Highlights -->
+  <div class="sch-section sch-section-bgg" style="margin-top:1.5rem;">
+    <h2>BGG Convention Highlights</h2>
+    <div class="section-sub">Key BGG@SEA events throughout the cruise</div>
+    <ul class="sch-hl-list">
+      <li><span class="hl-icon">💬</span> Join BGG@SEA Discord for updates &amp; meetups <span class="sch-hl-time">Pre-cruise</span></li>
+      <li><span class="hl-icon">🎫</span> Conference Centre check-in Deck 13 AFT <span class="sch-hl-time">Day 1</span></li>
+      <li><span class="hl-icon">🎉</span> Welcome Reception &mdash; Music Hall <span class="sch-hl-time">Day 2 &middot; 7-8pm</span></li>
+      <li><span class="hl-icon">🎲</span> Open gaming throughout the cruise <span class="sch-hl-time">Daily</span></li>
+      <li><span class="hl-icon">🍽️</span> Maori Lunch with designers &mdash; Te Papa, Wellington <span class="sch-hl-time">Day 7 &middot; 1:30pm</span></li>
+      <li><span class="hl-icon">👋</span> Farewell Reception &mdash; Music Hall <span class="sch-hl-time">Day 11 &middot; 4-5pm</span></li>
+      <li><span class="hl-icon">📚</span> Return all borrowed library games <span class="sch-hl-time">Day 12</span></li>
+    </ul>
+  </div>
+
+  <!-- The Key VIP Perks -->
+  <div class="sch-section sch-section-key">
+    <h2>The Key VIP Perks</h2>
+    <div class="section-sub">Included with your Key package</div>
+    <div class="sch-perks-grid">
+      <div class="sch-perk"><span class="sch-perk-icon">📶</span> VOOM Internet</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🍽️</span> Welcome Lunch</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🎭</span> VIP Show Seating</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🎢</span> Fast Lane Activities</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🚤</span> Priority Tender</div>
+      <div class="sch-perk"><span class="sch-perk-icon">💆</span> Spa Credit $60</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🚀</span> Priority Disembark</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🥐</span> Farewell Breakfast</div>
+    </div>
+  </div>
+
+  <!-- Sea Class Junior Suite Perks -->
+  <div class="sch-section sch-section-suite">
+    <h2>Sea Class Junior Suite Perks</h2>
+    <div class="section-sub">Cabin 6638 &middot; Deck 6</div>
+    <div class="sch-perks-grid">
+      <div class="sch-perk"><span class="sch-perk-icon">🍽️</span> Coastal Kitchen Dinner</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🧴</span> Luxury Bath Amenities</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🛁</span> Complimentary Bathrobes</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🛏️</span> Memory Foam Mattress</div>
+      <div class="sch-perk"><span class="sch-perk-icon">💧</span> Luxury Bottled Water</div>
+      <div class="sch-perk"><span class="sch-perk-icon">🎫</span> Priority Boarding</div>
+    </div>
+  </div>
+
+  <!-- Port-by-Port DIY Guide -->
+  <div class="sch-section sch-section-ports">
+    <h2>Port-by-Port DIY Guide</h2>
+    <div class="section-sub">Independent exploration highlights for each NZ port</div>
+
+    <!-- Dunedin -->
+    <div class="sch-port">
+      <h3>Dunedin (Port Chalmers)</h3>
+      <div class="port-meta">Day 5 &middot; Thu Feb 19 &middot; Gangway 8:15am-5:30pm</div>
+      <div class="port-transport">Free shuttle from Port Chalmers to Dunedin city centre (20 min)</div>
+      <div class="sch-port-hl-grid">
+        <div class="sch-port-hl"><span class="hl-name">Larnach Castle</span> <span class="hl-cost">~$35</span><div class="hl-note">NZ's only castle, gardens + cafe</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Baldwin Street</span> <span class="hl-cost">Free</span><div class="hl-note">World's steepest residential street</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Royal Albatross Centre</span> <span class="hl-cost">~$55</span><div class="hl-note">Only mainland albatross colony</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Otago Museum</span> <span class="hl-cost">Free</span><div class="hl-note">Natural history + Maori galleries</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Speight's Brewery Tour</span> <span class="hl-cost">~$28</span><div class="hl-note">Heritage brewery, tastings included</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Tunnel Beach Walk</span> <span class="hl-cost">Free</span><div class="hl-note">Hand-carved tunnel to hidden beach</div></div>
+      </div>
+      <div class="sch-port-dining">Eat at Etrusco for Italian or The Good Oil for brunch</div>
+    </div>
+
+    <!-- Christchurch -->
+    <div class="sch-port">
+      <h3>Christchurch (Lyttelton)</h3>
+      <div class="port-meta">Day 6 &middot; Fri Feb 20 &middot; Gangway 8:45am-5:30pm</div>
+      <div class="port-transport">Shuttle from Lyttelton to Christchurch city centre (~30 min)</div>
+      <div class="sch-port-hl-grid">
+        <div class="sch-port-hl"><span class="hl-name">Christchurch Gondola</span> <span class="hl-cost">~$36</span><div class="hl-note">Ride from Heathcote Valley, crater views</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Botanic Gardens</span> <span class="hl-cost">Free</span><div class="hl-note">21 hectares, punting on the Avon</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Quake City</span> <span class="hl-cost">~$20</span><div class="hl-note">Earthquake memorial + rebuild story</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Akaroa Day Trip</span> <span class="hl-cost">~$40 bus</span><div class="hl-note">French village, dolphin cruises</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Riverside Market</span> <span class="hl-cost">Free entry</span><div class="hl-note">Artisan food hall, great for lunch</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Street Art Walk</span> <span class="hl-cost">Free</span><div class="hl-note">Post-quake murals + installations</div></div>
+      </div>
+      <div class="sch-port-dining">Eat at Lyttelton Coffee Company or Supreme Supreme</div>
+    </div>
+
+    <!-- Wellington -->
+    <div class="sch-port">
+      <h3>Wellington</h3>
+      <div class="port-meta">Day 7 &middot; Sat Feb 21 &middot; Gangway 7:45am-4:30pm</div>
+      <div class="port-transport">Walk to city centre from port (10 min) or hop-on-hop-off bus</div>
+      <div class="sch-port-hl-grid">
+        <div class="sch-port-hl"><span class="hl-name">Te Papa Museum</span> <span class="hl-cost">Free</span><div class="hl-note">NZ's national museum, world-class</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Weta Workshop</span> <span class="hl-cost">$219 tour</span><div class="hl-note">LOTR props + movie magic (booked!)</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Cable Car</span> <span class="hl-cost">~$10</span><div class="hl-note">Iconic ride to Kelburn lookout</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Cuba Street</span> <span class="hl-cost">Free</span><div class="hl-note">Bohemian shops, cafes, bucket fountain</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Zealandia Ecosanctuary</span> <span class="hl-cost">~$21</span><div class="hl-note">Predator-free wildlife reserve</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Mount Victoria Lookout</span> <span class="hl-cost">Free</span><div class="hl-note">360-degree city + harbour views</div></div>
+      </div>
+      <div class="sch-port-dining">Eat at Prefab for coffee or Ortega Fish Shack for seafood</div>
+    </div>
+
+    <!-- Napier -->
+    <div class="sch-port">
+      <h3>Napier</h3>
+      <div class="port-meta">Day 8 &middot; Sun Feb 22 &middot; Gangway 8:45am-4:00pm</div>
+      <div class="port-transport">Walk to Art Deco centre from port (15 min)</div>
+      <div class="sch-port-hl-grid">
+        <div class="sch-port-hl"><span class="hl-name">Art Deco Walk</span> <span class="hl-cost">Free</span><div class="hl-note">Self-guided, 1930s architecture trail</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Cape Kidnappers</span> <span class="hl-cost">~$80 tour</span><div class="hl-note">World's largest gannet colony</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Hawke's Bay Wineries</span> <span class="hl-cost">~$15/tasting</span><div class="hl-note">Cellar doors: Mission, Craggy Range</div></div>
+        <div class="sch-port-hl"><span class="hl-name">MTG Museum</span> <span class="hl-cost">Free</span><div class="hl-note">Art, heritage + 1931 earthquake story</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Bluff Hill Lookout</span> <span class="hl-cost">Free</span><div class="hl-note">Panoramic port + city views</div></div>
+        <div class="sch-port-hl"><span class="hl-name">National Aquarium</span> <span class="hl-cost">~$24</span><div class="hl-note">Swim with sharks or feed penguins</div></div>
+      </div>
+      <div class="sch-port-dining">Eat at Bistronomy for brunch or Pacifica for fine dining</div>
+    </div>
+
+    <!-- Tauranga -->
+    <div class="sch-port">
+      <h3>Tauranga (Mount Maunganui)</h3>
+      <div class="port-meta">Day 9 &middot; Mon Feb 23 (Birthday!) &middot; Gangway 2:15pm-7:00pm</div>
+      <div class="port-transport">Shuttle/bus to Mount Maunganui from port (15 min)</div>
+      <div class="sch-port-hl-grid">
+        <div class="sch-port-hl"><span class="hl-name">Mauao Summit Walk</span> <span class="hl-cost">Free</span><div class="hl-note">45-min climb, panoramic views</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Mount Hot Pools</span> <span class="hl-cost">~$25</span><div class="hl-note">Saltwater hot pools by the ocean</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Main Beach</span> <span class="hl-cost">Free</span><div class="hl-note">Surf beach at base of the Mount</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Pilot Bay</span> <span class="hl-cost">Free</span><div class="hl-note">Calm harbour-side beach, great for swimming</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Bobby's Fresh Fish Market</span> <span class="hl-cost">~$15</span><div class="hl-note">Fish & chips on the wharf</div></div>
+        <div class="sch-port-hl"><span class="hl-name">Mount Drury Reserve</span> <span class="hl-cost">Free</span><div class="hl-note">Moturiki Island, blowhole walk</div></div>
+      </div>
+      <div class="sch-port-dining">Eat at Bobby's on the wharf for fish & chips (birthday tradition!)</div>
+    </div>
+  </div>
+
+  <!-- Booking Details -->
+  <div class="sch-booking">
+    <h2>Booking Details</h2>
+    <div class="sch-booking-row"><span class="k">Booking ID</span><span class="v">6044580</span></div>
+    <div class="sch-booking-row"><span class="k">Ship</span><span class="v">Anthem of the Seas</span></div>
+    <div class="sch-booking-row"><span class="k">Cabin</span><span class="v">Junior Suite &middot; Deck 6, 6638</span></div>
+    <div class="sch-booking-row"><span class="k">Muster Station</span><span class="v">D1</span></div>
+    <div class="sch-booking-row"><span class="k">Dates</span><span class="v">Feb 15 &ndash; 27, 2026</span></div>
+    <div class="sch-booking-row"><span class="k">Badge</span><span class="v">#175 &mdash; Geoffrey Bowers</span></div>
+    <div class="sch-booking-row"><span class="k">Convention</span><span class="v">Game Room Access</span></div>
+    <div class="sch-booking-row"><span class="k">Add-ons</span><span class="v">The Key (VIP)</span></div>
+    <div class="sch-booking-row"><span class="k">Excursion</span><span class="v">LOTR &amp; Weta &middot; Wellington &middot; $219</span></div>
+  </div>
+
+  <!-- Colour Key -->
+  <div class="sch-colour-key">
+    <h2>Colour Key</h2>
+    <div class="sch-ck-grid">
+      <div class="sch-ck-item"><span class="sch-ck-dot dot-bgg"></span><span class="cat-text-bgg">BGG@SEA</span></div>
+      <div class="sch-ck-item"><span class="sch-ck-dot dot-cruise"></span><span class="cat-text-cruise">Cruise</span></div>
+      <div class="sch-ck-item"><span class="sch-ck-dot dot-key"></span><span class="cat-text-key">The Key</span></div>
+      <div class="sch-ck-item"><span class="sch-ck-dot dot-work"></span><span class="cat-text-work">RealEasy</span></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ============================================================
+  // DATA
+  // ============================================================
+  var DAYS = [
+    {
+      day: 0, date: 'Sat Feb 14', label: 'Pre-Cruise', type: 'prep', location: 'Sydney',
+      details: 'Final preparations before embarkation. Complete all check-in requirements, download apps, and pack.',
+      todos: [
+        { text: 'Complete RC app check-in', cat: 'cruise', time: 'ASAP' },
+        { text: 'Download NZTD app', cat: 'cruise', time: 'Now' },
+        { text: 'Print SetSail Pass', cat: 'cruise', time: '' },
+        { text: 'Pack bags', cat: 'cruise', time: '' },
+        { text: 'Verify badge dining preference', cat: 'bgg', time: 'URGENT' },
+        { text: "Check Julie's badge dining preference", cat: 'bgg', time: 'URGENT' }
+      ],
+      alerts: [
+        { text: 'Check dining preference on badge!', cat: 'bgg' }
+      ]
+    },
+    {
+      day: 1, date: 'Sun Feb 15', label: 'Embarkation', type: 'port', location: 'Sydney, Australia',
+      details: 'Board Anthem of the Seas at Circular Quay. Collect SeaPass cards, explore the ship, and check in at the BGG Conference Centre on Deck 13 AFT.',
+      todos: [
+        { text: 'Board ship with passport + SetSail Pass', cat: 'cruise', time: '2:30pm arrival' },
+        { text: 'Muster Station check-in', cat: 'cruise', time: 'On boarding' },
+        { text: 'The Key welcome lunch Deck 4', cat: 'key', time: '12:00-1:30pm' },
+        { text: 'Cabins open collect SeaPass cards', cat: 'cruise', time: '~1:00pm' },
+        { text: 'Visit Conference Centre Deck 13 AFT', cat: 'bgg', time: 'After boarding' },
+        { text: 'Collect BGG goodies from Jeff/Kristine', cat: 'bgg', time: 'After boarding' },
+        { text: 'Check dining table assignment', cat: 'bgg', time: 'Before dinner' },
+        { text: 'Ship departs Sydney', cat: 'cruise', time: '4:00pm' }
+      ],
+      alerts: [
+        { text: 'Arrive 2:30pm Departs 4:00pm', cat: 'cruise' },
+        { text: 'Check-in Deck 13 AFT', cat: 'bgg' }
+      ]
+    },
+    {
+      day: 2, date: 'Mon Feb 16', label: 'At Sea', type: 'sea', location: 'Tasman Sea',
+      details: 'First full day at sea crossing the Tasman. Explore the ship, find the game rooms, and attend the BGG Welcome Reception in the Music Hall.',
+      todos: [
+        { text: 'Welcome Reception Music Hall', cat: 'bgg', time: '7:00-8:00pm' },
+        { text: 'Explore the ship', cat: 'cruise', time: '' }
+      ],
+      alerts: [
+        { text: 'Welcome Reception 7-8pm', cat: 'bgg' }
+      ]
+    },
+    {
+      day: 3, date: 'Tue Feb 17', label: 'At Sea', type: 'sea', location: 'Tasman Sea',
+      details: 'Second sea day. Open gaming sessions and catching up with work via VOOM internet.',
+      todos: [
+        { text: 'Exec Catchup', cat: 'work', time: '10:00am AEDT noon NZDT' }
+      ],
+      alerts: [
+        { text: 'Exec Catchup 10am AEDT', cat: 'work' }
+      ]
+    },
+    {
+      day: 4, date: 'Wed Feb 18', label: 'Scenic Cruising', type: 'scenic', location: 'Milford + Doubtful + Dusky Sound',
+      details: 'Triple fiord scenic cruising day through Fiordland National Park. Be on deck for all three sounds \u2014 this is the highlight of the NZ coastline.',
+      todos: [
+        { text: 'Be on deck for Milford Sound', cat: 'cruise', time: 'Check daily schedule' },
+        { text: 'Doubtful Sound scenic cruising', cat: 'cruise', time: 'Check daily schedule' },
+        { text: 'Dusky Sound scenic cruising', cat: 'cruise', time: 'Check daily schedule' },
+        { text: 'Have seasickness remedies ready', cat: 'cruise', time: '' },
+        { text: 'Confirm NZTD submitted', cat: 'cruise', time: 'Before Dunedin tomorrow' }
+      ],
+      alerts: [
+        { text: 'Triple fiord day get on deck!', cat: 'cruise' },
+        { text: 'NZTD must be done before Dunedin', cat: 'cruise' }
+      ]
+    },
+    {
+      day: 5, date: 'Thu Feb 19', label: 'Port Day', type: 'port', location: 'Dunedin (Port Chalmers), NZ',
+      gangway: '8:15am-5:30pm',
+      details: 'First NZ port. Free shuttle to Dunedin city centre. Explore the Scottish heritage city, visit Larnach Castle, or head to the Otago Peninsula for wildlife.',
+      todos: [
+        { text: 'Priority tender with The Key', cat: 'key', time: 'Morning' },
+        { text: 'Shuttle/bus to Dunedin centre', cat: 'cruise', time: 'From 8:15am' },
+        { text: 'Explore Dunedin or Otago Peninsula', cat: 'cruise', time: 'Daytime' },
+        { text: 'Back on board', cat: 'cruise', time: 'By 5:30pm' }
+      ],
+      alerts: [
+        { text: 'Gangway 8:15am-5:30pm', cat: 'cruise' }
+      ]
+    },
+    {
+      day: 6, date: 'Fri Feb 20', label: 'Port Day', type: 'port', location: 'Christchurch (Lyttelton), NZ',
+      gangway: '8:45am-5:30pm',
+      details: 'Lyttelton port with shuttle to Christchurch. Ride the Gondola, visit the Botanic Gardens, or take a day trip to the French village of Akaroa.',
+      todos: [
+        { text: 'Priority tender with The Key', cat: 'key', time: 'Morning' },
+        { text: 'Shuttle to Christchurch or explore Lyttelton', cat: 'cruise', time: 'From 8:45am' },
+        { text: 'Christchurch Gondola / Botanic Gardens / Akaroa', cat: 'cruise', time: 'Daytime' },
+        { text: 'Back on board', cat: 'cruise', time: 'By 5:30pm' }
+      ],
+      alerts: [
+        { text: 'Gangway 8:45am-5:30pm', cat: 'cruise' }
+      ]
+    },
+    {
+      day: 7, date: 'Sat Feb 21', label: 'Port Day', type: 'port', location: 'Wellington, NZ',
+      gangway: '7:45am-4:30pm',
+      details: 'NZ capital with LOTR & Weta Workshop tour booked. Optional BGG Maori Lunch at Te Papa museum with game designers. Ship departs 4:30pm sharp.',
+      todos: [
+        { text: 'LOTR & Weta Workshop Tour booked', cat: 'cruise', time: '8:00am' },
+        { text: 'Arrive Te Papa for Maori Lunch if booked', cat: 'bgg', time: '1:00pm' },
+        { text: 'Maori Lunch', cat: 'bgg', time: '1:30-2:30pm' },
+        { text: 'Designer Q&A / free time if Lunch + Session', cat: 'bgg', time: '2:45-4:00pm' },
+        { text: 'Bus return from Te Papa ship departs 4:30pm!', cat: 'bgg', time: '4:15pm' }
+      ],
+      alerts: [
+        { text: 'LOTR & Weta Tour 8am $219', cat: 'cruise' },
+        { text: 'Maori Lunch with designers if booked', cat: 'bgg' },
+        { text: 'Gangway 7:45am-4:30pm', cat: 'cruise' }
+      ]
+    },
+    {
+      day: 8, date: 'Sun Feb 22', label: 'Port Day', type: 'port', location: 'Napier, NZ',
+      gangway: '8:45am-4:00pm',
+      details: 'Art Deco capital of the world. Walk the 1930s architecture trail, visit Cape Kidnappers gannet colony, or explore Hawke\u2019s Bay wine country.',
+      todos: [
+        { text: 'Art Deco self-guided walk', cat: 'cruise', time: 'Morning' },
+        { text: "Cape Kidnappers gannets or Hawke's Bay wineries", cat: 'cruise', time: 'Afternoon' },
+        { text: 'Back on board', cat: 'cruise', time: 'By 4:00pm' }
+      ],
+      alerts: [
+        { text: 'Gangway 8:45am-4:00pm', cat: 'cruise' }
+      ]
+    },
+    {
+      day: 9, date: 'Mon Feb 23', label: 'Port Day Birthday!', type: 'port', location: 'Tauranga, NZ',
+      gangway: '2:15pm-7:00pm',
+      details: 'Birthday in Tauranga! Late gangway means morning gaming on the ship. Then summit Mount Maunganui, soak in hot pools, and fish & chips on the wharf.',
+      todos: [
+        { text: 'Morning gaming birthday session!', cat: 'bgg', time: 'Morning' },
+        { text: 'Mount Maunganui summit hike', cat: 'cruise', time: 'From 2:15pm' },
+        { text: 'Mount Hot Pools geothermal soak + birthday massage', cat: 'cruise', time: '~4:00pm' },
+        { text: 'Fish & chips at Bobby\'s on the wharf', cat: 'cruise', time: '~5:30pm' },
+        { text: 'Back on board', cat: 'cruise', time: 'By 7:00pm' }
+      ],
+      alerts: [
+        { text: 'Happy birthday!', cat: 'birthday' },
+        { text: 'Gangway 2:15pm-7:00pm only!', cat: 'cruise' }
+      ]
+    },
+    {
+      day: 10, date: 'Tue Feb 24', label: 'At Sea', type: 'sea', location: 'Tasman Sea',
+      details: 'Crossing back across the Tasman. Full day for gaming and a work catch-up call.',
+      todos: [
+        { text: 'Exec Catchup', cat: 'work', time: '10:00am AEDT noon NZDT' }
+      ],
+      alerts: [
+        { text: 'Exec Catchup 10am AEDT', cat: 'work' }
+      ]
+    },
+    {
+      day: 11, date: 'Wed Feb 25', label: 'At Sea', type: 'sea', location: 'Tasman Sea',
+      details: 'Second-to-last sea day. Attend the BGG Farewell Reception in the Music Hall and get in final gaming sessions.',
+      todos: [
+        { text: 'Farewell Reception Music Hall', cat: 'bgg', time: '4:00-5:00pm' }
+      ],
+      alerts: [
+        { text: 'Farewell Reception 4-5pm', cat: 'bgg' }
+      ]
+    },
+    {
+      day: 12, date: 'Thu Feb 26', label: 'At Sea', type: 'sea', location: 'Tasman Sea',
+      details: 'Last day at sea. Return borrowed games, pack luggage, and collect priority luggage tags from The Key desk.',
+      todos: [
+        { text: 'Return any borrowed library games', cat: 'bgg', time: 'Before packing' },
+        { text: 'Pack luggage for disembarkation', cat: 'cruise', time: 'Evening' },
+        { text: 'Collect priority luggage tags The Key', cat: 'key', time: 'Evening' }
+      ],
+      alerts: [
+        { text: 'Pack tonight last sea day', cat: 'cruise' },
+        { text: 'Return library games', cat: 'bgg' }
+      ]
+    },
+    {
+      day: 13, date: 'Fri Feb 27', label: 'Arrival', type: 'port', location: 'Sydney, Australia',
+      arrives: '6:30am',
+      details: 'Disembarkation day. Early farewell breakfast with The Key, then priority disembarkation. Welcome home!',
+      todos: [
+        { text: 'The Key farewell breakfast Deck 4', cat: 'key', time: '6:00-8:00am' },
+        { text: 'Priority disembarkation', cat: 'key', time: 'Morning' },
+        { text: 'Home!', cat: 'cruise', time: '' }
+      ],
+      alerts: [
+        { text: 'Arrives 6:30am disembarkation day', cat: 'cruise' }
+      ]
+    }
+  ];
+
+  var TYPE_CFG = {
+    prep:   { icon: '\uD83D\uDCCB', label: 'Prep' },
+    port:   { icon: '\u2693',       label: 'Port' },
+    sea:    { icon: '\uD83C\uDF0A', label: 'Sea Day' },
+    scenic: { icon: '\uD83C\uDFD4\uFE0F', label: 'Scenic' }
+  };
+
+  var CAT_CFG = {
+    bgg:   { label: 'BGG@SEA', dotClass: 'dot-bgg', textClass: 'cat-text-bgg', filterClass: 'cat-bgg' },
+    cruise:{ label: 'Cruise',  dotClass: 'dot-cruise', textClass: 'cat-text-cruise', filterClass: 'cat-cruise' },
+    key:   { label: 'The Key', dotClass: 'dot-key', textClass: 'cat-text-key', filterClass: 'cat-key' },
+    work:  { label: 'RealEasy', dotClass: 'dot-work', textClass: 'cat-text-work', filterClass: 'cat-work' }
+  };
+
+  var TL_COLORS = { port: '#3b82f6', sea: '#0891b2', scenic: '#059669', prep: '#ca8a04' };
+
+  // ============================================================
+  // STATE
+  // ============================================================
+  var activeTypeFilter = 'all';
+  var activeCatFilter = 'all';
+  var expandedDays = {};
+
+  // ============================================================
+  // COUNTDOWN
+  // ============================================================
+  var sail = new Date(2026, 1, 15);
+  var now = new Date();
+  var diff = Math.ceil((sail - now) / (1000 * 60 * 60 * 24));
+  var cdNum = document.getElementById('sch-cd-num');
+  var cdLbl = document.getElementById('sch-cd-lbl');
+  if (diff > 0) { cdNum.textContent = diff; }
+  else if (diff === 0) { cdNum.textContent = 'Today!'; cdLbl.textContent = ''; }
+  else { cdNum.textContent = 'Bon voyage!'; cdLbl.textContent = ''; }
+
+  // ============================================================
+  // TIMELINE BAR
+  // ============================================================
+  var tlBar = document.getElementById('tl-bar');
+  DAYS.forEach(function(d) {
+    if (d.day === 0) return; // skip pre-cruise
+    var seg = document.createElement('div');
+    seg.className = 'tl-seg tl-seg-' + d.type;
+    seg.textContent = d.day;
+    seg.setAttribute('data-day', d.day);
+    seg.title = 'Day ' + d.day + ': ' + d.label + ' \u2014 ' + d.location;
+    // BGG stripe
+    var hasBgg = d.todos.some(function(t) { return t.cat === 'bgg'; });
+    if (hasBgg) {
+      var stripe = document.createElement('div');
+      stripe.className = 'tl-bgg-stripe';
+      seg.appendChild(stripe);
+    }
+    seg.addEventListener('click', function() { toggleDayFromTimeline(d.day); });
+    tlBar.appendChild(seg);
+  });
+
+  function toggleDayFromTimeline(dayNum) {
+    // clear all active states
+    var segs = tlBar.querySelectorAll('.tl-seg');
+    segs.forEach(function(s) { s.classList.remove('active'); });
+
+    // toggle the card
+    if (expandedDays[dayNum]) {
+      expandedDays[dayNum] = false;
+    } else {
+      // collapse all first
+      Object.keys(expandedDays).forEach(function(k) { expandedDays[k] = false; });
+      expandedDays[dayNum] = true;
+      // set active on timeline
+      var activeSeg = tlBar.querySelector('[data-day="' + dayNum + '"]');
+      if (activeSeg) activeSeg.classList.add('active');
+    }
+    renderDays();
+    // scroll to the card
+    if (expandedDays[dayNum]) {
+      var card = document.getElementById('day-' + dayNum);
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ============================================================
+  // TYPE FILTER BUTTONS
+  // ============================================================
+  var typeFiltersEl = document.getElementById('type-filters');
+  var typeOptions = [
+    { key: 'all', label: 'All Days', count: DAYS.length },
+    { key: 'port', label: 'Ports', count: DAYS.filter(function(d){ return d.type === 'port' || d.type === 'prep'; }).length },
+    { key: 'sea', label: 'Sea Days', count: DAYS.filter(function(d){ return d.type === 'sea'; }).length },
+    { key: 'scenic', label: 'Scenic', count: DAYS.filter(function(d){ return d.type === 'scenic'; }).length }
+  ];
+  typeOptions.forEach(function(opt) {
+    var btn = document.createElement('button');
+    btn.className = 'sch-fbtn' + (opt.key === activeTypeFilter ? ' active' : '');
+    btn.innerHTML = opt.label + '<span class="sch-fbtn-count">' + opt.count + '</span>';
+    btn.setAttribute('data-type', opt.key);
+    btn.addEventListener('click', function() {
+      activeTypeFilter = opt.key;
+      renderTypeFilters();
+      renderDays();
+    });
+    typeFiltersEl.appendChild(btn);
+  });
+
+  function renderTypeFilters() {
+    var btns = typeFiltersEl.querySelectorAll('.sch-fbtn');
+    btns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-type') === activeTypeFilter);
+    });
+  }
+
+  // ============================================================
+  // CATEGORY FILTER BUTTONS
+  // ============================================================
+  var catFiltersEl = document.getElementById('cat-filters');
+  var catOptions = [
+    { key: 'all', label: 'All Tasks' }
+  ];
+  ['bgg', 'cruise', 'key', 'work'].forEach(function(c) {
+    var count = 0;
+    DAYS.forEach(function(d) { d.todos.forEach(function(t) { if (t.cat === c) count++; }); });
+    catOptions.push({ key: c, label: CAT_CFG[c].label, count: count, filterClass: CAT_CFG[c].filterClass });
+  });
+  catOptions.forEach(function(opt) {
+    var btn = document.createElement('button');
+    var cls = 'sch-fbtn';
+    if (opt.filterClass) cls += ' ' + opt.filterClass;
+    if (opt.key === activeCatFilter) cls += ' active';
+    btn.className = cls;
+    var countStr = opt.count !== undefined ? '<span class="sch-fbtn-count">' + opt.count + '</span>' : '';
+    btn.innerHTML = opt.label + countStr;
+    btn.setAttribute('data-cat', opt.key);
+    btn.addEventListener('click', function() {
+      activeCatFilter = opt.key;
+      renderCatFilters();
+      renderDays();
+    });
+    catFiltersEl.appendChild(btn);
+  });
+
+  function renderCatFilters() {
+    var btns = catFiltersEl.querySelectorAll('.sch-fbtn');
+    btns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-cat') === activeCatFilter);
+    });
+  }
+
+  // ============================================================
+  // RENDER DAY CARDS
+  // ============================================================
+  function renderDays() {
+    var container = document.getElementById('day-cards');
+    container.innerHTML = '';
+
+    DAYS.forEach(function(d) {
+      // Type filter
+      if (activeTypeFilter !== 'all') {
+        if (activeTypeFilter === 'port') {
+          if (d.type !== 'port' && d.type !== 'prep') return;
+        } else if (d.type !== activeTypeFilter) {
+          return;
+        }
+      }
+
+      // Category filter: skip days with no matching todos
+      if (activeCatFilter !== 'all') {
+        var hasCat = d.todos.some(function(t) { return t.cat === activeCatFilter; });
+        if (!hasCat) return;
+      }
+
+      var card = document.createElement('div');
+      card.className = 'sch-day' + (expandedDays[d.day] ? ' open' : '');
+      card.id = 'day-' + d.day;
+
+      var cfg = TYPE_CFG[d.type];
+
+      // Header
+      var hdr = document.createElement('div');
+      hdr.className = 'sch-day-hdr';
+      hdr.addEventListener('click', function() {
+        expandedDays[d.day] = !expandedDays[d.day];
+        card.classList.toggle('open');
+        // sync timeline
+        syncTimeline();
+      });
+
+      // Icon
+      var icon = document.createElement('span');
+      icon.className = 'sch-day-icon';
+      icon.textContent = cfg.icon;
+      hdr.appendChild(icon);
+
+      // Info
+      var info = document.createElement('div');
+      info.className = 'sch-day-info';
+
+      // Title row
+      var titleRow = document.createElement('div');
+      titleRow.className = 'sch-day-title';
+      var name = document.createElement('span');
+      name.className = 'sch-day-name';
+      name.textContent = d.day === 0 ? 'Pre-Cruise' : 'Day ' + d.day + ': ' + d.label;
+      titleRow.appendChild(name);
+
+      var badge = document.createElement('span');
+      badge.className = 'sch-day-badge badge-' + d.type;
+      badge.textContent = cfg.label;
+      titleRow.appendChild(badge);
+      info.appendChild(titleRow);
+
+      // Alert badges
+      if (d.alerts && d.alerts.length > 0) {
+        var alertsDiv = document.createElement('div');
+        alertsDiv.className = 'sch-day-alerts';
+        d.alerts.forEach(function(a) {
+          var ab = document.createElement('span');
+          ab.className = 'sch-alert alert-' + a.cat;
+          ab.textContent = a.text;
+          alertsDiv.appendChild(ab);
+        });
+        info.appendChild(alertsDiv);
+      }
+
+      // Subtitle
+      var sub = document.createElement('div');
+      sub.className = 'sch-day-sub';
+      var subText = d.date + ' \u2014 ' + d.location;
+      if (d.gangway) subText += ' \u00B7 Gangway ' + d.gangway;
+      if (d.arrives) subText += ' \u00B7 Arrives ' + d.arrives;
+      sub.textContent = subText;
+      info.appendChild(sub);
+
+      hdr.appendChild(info);
+
+      // Chevron
+      var chev = document.createElement('span');
+      chev.className = 'sch-day-chevron';
+      chev.innerHTML = '\u25B6';
+      hdr.appendChild(chev);
+
+      card.appendChild(hdr);
+
+      // Body
+      var body = document.createElement('div');
+      body.className = 'sch-day-body';
+
+      // Description
+      if (d.details) {
+        var desc = document.createElement('p');
+        desc.className = 'sch-day-desc';
+        desc.textContent = d.details;
+        body.appendChild(desc);
+      }
+
+      var divider = document.createElement('hr');
+      divider.className = 'sch-day-divider';
+      body.appendChild(divider);
+
+      // Group todos by category
+      var catOrder = ['bgg', 'cruise', 'key', 'work'];
+      var grouped = {};
+      d.todos.forEach(function(t) {
+        if (!grouped[t.cat]) grouped[t.cat] = [];
+        grouped[t.cat].push(t);
+      });
+
+      catOrder.forEach(function(cat) {
+        if (!grouped[cat]) return;
+        // If category filter active, skip non-matching
+        if (activeCatFilter !== 'all' && cat !== activeCatFilter) return;
+
+        var catCfg = CAT_CFG[cat];
+        var group = document.createElement('div');
+        group.className = 'sch-cat-group';
+
+        var label = document.createElement('div');
+        label.className = 'sch-cat-label';
+        var dot = document.createElement('span');
+        dot.className = 'sch-cat-dot ' + catCfg.dotClass;
+        label.appendChild(dot);
+        var labelText = document.createElement('span');
+        labelText.className = catCfg.textClass;
+        labelText.textContent = catCfg.label;
+        label.appendChild(labelText);
+        group.appendChild(label);
+
+        var ul = document.createElement('ul');
+        ul.className = 'sch-todo-list';
+        grouped[cat].forEach(function(t) {
+          var li = document.createElement('li');
+          li.className = 'sch-todo-item';
+          var bullet = document.createElement('span');
+          bullet.className = 'sch-todo-bullet';
+          bullet.innerHTML = '\u25CB';
+          li.appendChild(bullet);
+          var textSpan = document.createElement('span');
+          textSpan.className = 'sch-todo-text';
+          textSpan.textContent = t.text;
+          if (t.time) {
+            var timeBadge = document.createElement('span');
+            timeBadge.className = 'sch-todo-time';
+            timeBadge.textContent = t.time;
+            textSpan.appendChild(timeBadge);
+          }
+          li.appendChild(textSpan);
+          ul.appendChild(li);
+        });
+        group.appendChild(ul);
+        body.appendChild(group);
+      });
+
+      card.appendChild(body);
+      container.appendChild(card);
+    });
+  }
+
+  function syncTimeline() {
+    var segs = tlBar.querySelectorAll('.tl-seg');
+    segs.forEach(function(s) {
+      var dayNum = parseInt(s.getAttribute('data-day'), 10);
+      s.classList.toggle('active', !!expandedDays[dayNum]);
+    });
+  }
+
+  // Initial render
+  renderDays();
+
+})();
+</script>
