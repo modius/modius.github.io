@@ -59,6 +59,8 @@ code snippet
 
 ### Image embed
 
+{% raw %}
 ```
 {% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
 ```
+{% endraw %}
