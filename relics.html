@@ -1,0 +1,28 @@
+---
+layout: default
+title: Dusty Relics
+permalink: /relics/
+---
+<h1 class="page-title">Dusty Relics</h1>
+<div class="relics-intro">
+  <p>Technical writings from 2013&ndash;2016. A time of Vagrant, Chef, Docker Cloud, and ColdFusion. The tools have moved on but the ideas often haven't. Preserved here for posterity and the occasional nostalgic chuckle.</p>
+</div>
+
+{% assign sorted_relics = site.relics | sort: 'date' | reverse %}
+{% assign current_year = nil %}
+
+{% for relic in sorted_relics %}
+  {% assign post_year = relic.date | date: "%Y" %}
+  {% if post_year != current_year %}
+    {% assign current_year = post_year %}
+    <div class="relics-year">{{ current_year }}</div>
+  {% endif %}
+  <ul class="post-list">
+    <li class="post-list-item">
+      <a href="{{ relic.url | relative_url }}">
+        <span class="post-list-date">{{ relic.date | date: "%d %b" }}</span>
+        <span class="post-list-title">{{ relic.title }}</span>
+      </a>
+    </li>
+  </ul>
+{% endfor %}

@@ -1,42 +1,38 @@
 ---
-layout: post-index
-title: Latest Posts
-description: "Describe this nonsense."
-tags: [Jekyll, theme, themes, responsive, blog, modern]
-comments: false
-image:
-  feature: features/barry-the-octopus.jpg
-  credit: 
-  creditlink: 
+layout: default
+title: modius.io
 ---
+<div class="home-intro">
+  <h1>Hey, I'm Geoff.</h1>
+  <p>Builder of things, mostly with code. Antipodean with a Caledonian education. 25+ year digital veteran, open source enthusiast, and occasional writer of technical things.</p>
+</div>
 
-{% for post in paginator.posts %}
-<article class="hentry">
-  <header>
-    {% if post.image.feature %}
-      <div class="entry-image-index">
-        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
-      </div><!-- /.entry-image -->
-    {% endif %}
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span><span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span></span>
-      {% if site.reading_time %}
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        {% include read-time-index.html %}
-      </span><!-- /.entry-reading-time -->
-      {% endif %}
-    </div><!-- /.entry-meta -->
-    {% if post.link %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
-    {% else %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
-    {% endif %}
-  </header>
-  <div class="entry-content">
-    {{ post.content }}
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-{% endfor %}
+{% if site.posts.size > 0 %}
+<div class="section-label">Latest</div>
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li class="post-list-item">
+    <a href="{{ post.url | relative_url }}">
+      <span class="post-list-date">{{ post.date | date: "%b %Y" }}</span>
+      <span class="post-list-title">{{ post.title }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
 
-{% include pagination.html %}
+{% if site.relics.size > 0 %}
+<div class="section-label" style="margin-top: 3rem;">Dusty Relics</div>
+<p style="color: #6b6b6b; font-size: 0.9rem; margin-bottom: 1.25rem;">Writings from a bygone era of Vagrant, Docker Cloud, and ColdFusion. Preserved for posterity.</p>
+<ul class="post-list">
+  {% assign sorted_relics = site.relics | sort: 'date' | reverse %}
+  {% for relic in sorted_relics %}
+  <li class="post-list-item">
+    <a href="{{ relic.url | relative_url }}">
+      <span class="post-list-date">{{ relic.date | date: "%b %Y" }}</span>
+      <span class="post-list-title">{{ relic.title }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

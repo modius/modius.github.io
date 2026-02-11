@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /0/
+
+Sitemap: https://modius.io/sitemap.xml

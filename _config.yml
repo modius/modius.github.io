@@ -1,56 +1,57 @@
-title:            modius.io
-description:      An abrasive interpolation of programmatic specificity.
-reading_time:     true
-words_per_minute: 200
-excerpt_separator:	'<!--more-->'
-# Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
-# When testing locally leave blank or use http://localhost:4000
-url:	http://modius.io
+title: modius.io
+description: Geoff Bowers — builder of things, mostly with code.
+url: https://modius.io
+baseurl: ""
 
-# Owner/author information
-owner:
-  name:           Geoff Bowers
-  avatar:         fixtures/avatar.png
-  bio:            "Much ado about nothing."
-  email:          modius@daemon.com.au
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:        modius
-  facebook:       
-  github:         modius
-  stackexchange:  
-  linkedin:       
-  instagram:      
-  flickr:         
-  tumblr:         
-  # google plus id, include the '+', eg +mmistakes
-  google_plus:    +GeoffBowers
+author:
+  name: Geoff Bowers
+  email: modius@daemon.com.au
+  github: modius
+  twitter: modius
 
-# Background image to be tiled on all pages
-background: fixtures/ignasi.png
-# using http://cargocollective.com/ignaudible/one-in-a-million
+timezone: Australia/Sydney
+permalink: /posts/:slug/
 
-# Analytics and webmaster tools stuff goes here
-google_analytics:   
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
-
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Australia/Sydney
-future:      true
+markdown: kramdown
 highlighter: rouge
-markdown:    kramdown
-gems:
-  - jekyll-sitemap
+
 sass:
   sass_dir: _sass
   style: compressed
 
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   pretty
+collections:
+  relics:
+    output: true
+    permalink: /relics/:slug/
 
-# Amount of post to show on home page
-paginate: 5
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "relics"
+    values:
+      layout: post
+  - scope:
+      path: "0"
+    values:
+      layout: zero
+      sitemap: false
 
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - Gruntfile.js
+  - package.json
+  - node_modules
+  - Rakefile.rb
+  - _templates
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
