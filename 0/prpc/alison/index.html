@@ -1,0 +1,1042 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Overview — 78 Alison Road, Randwick</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --dark: #1E1E2E;
+    --dark-light: #2A2A3E;
+    --pink: #E91E8C;
+    --pink-light: #F9A8D4;
+    --white: #FFFFFF;
+    --off-white: #FFF8FB;
+    --grey: #8A8A9F;
+    --light-grey: #F0EBF0;
+    --green: #27AE60;
+    --red: #E74C3C;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+    padding: 48px 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border: 2px solid rgba(233, 30, 140, 0.15);
+    border-radius: 50%;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: 60px;
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgba(233, 30, 140, 0.1);
+    border-radius: 50%;
+  }
+
+  .header-tag {
+    display: inline-block;
+    background: rgba(233, 30, 140, 0.15);
+    color: var(--pink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--grey);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-stat .icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-stat .icon-circle svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--pink);
+  }
+
+  .header-stat .stat-text .num {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .header-stat .stat-text .label {
+    font-size: 11px;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* GUIDE PRICE BANNER */
+  .price-banner {
+    background: linear-gradient(90deg, var(--pink) 0%, #F472B6 100%);
+    padding: 20px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price-banner .price-left {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .price-banner .price-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+  }
+
+  .price-banner .price-value {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--dark);
+  }
+
+  .price-banner .price-right {
+    text-align: right;
+  }
+
+  .price-banner .price-right .est-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+  }
+
+  .price-banner .price-right .est-range {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  /* BODY CONTENT */
+  .content {
+    padding: 40px 56px;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-grey);
+  }
+
+  /* PROPERTY SNAPSHOT ROW */
+  .snapshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .snapshot-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .snapshot-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 14px;
+  }
+
+  .detail-row:last-child { border-bottom: none; }
+
+  .detail-row .detail-label {
+    color: var(--grey);
+    font-weight: 400;
+  }
+
+  .detail-row .detail-value {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* KPI CARDS */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .kpi-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--pink);
+  }
+
+  .kpi-card .kpi-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .kpi-card .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* VALUATION METHODS */
+  .val-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .val-card {
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .val-card .val-method {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 6px;
+  }
+
+  .val-card .val-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(233, 30, 140, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .val-card .val-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--pink);
+  }
+
+  .val-card .val-range {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .val-card .val-desc {
+    font-size: 12.5px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* MARKET CONTEXT */
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .market-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .market-card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .bar-chart-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .bar-label {
+    font-size: 12px;
+    color: var(--grey);
+    width: 68px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--dark) 0%, var(--dark-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+  }
+
+  .bar-fill.pink { background: linear-gradient(90deg, var(--pink) 0%, #F472B6 100%); }
+
+  .bar-fill span {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .metric-row:last-child { border-bottom: none; }
+
+  .metric-row .metric-label {
+    font-size: 13px;
+    color: var(--grey);
+  }
+
+  .metric-row .metric-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .metric-row .metric-change {
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
+  .metric-change.up { color: var(--green); }
+  .metric-change.down { color: var(--red); }
+
+  /* COMPARABLE SALES TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 13px;
+  }
+
+  .comp-table thead th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--grey);
+    padding: 12px 14px;
+    border-bottom: 2px solid var(--light-grey);
+  }
+
+  .comp-table tbody td {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--light-grey);
+    color: var(--dark);
+  }
+
+  .comp-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comp-table .highlight-row td {
+    background: rgba(233, 30, 140, 0.06);
+    font-weight: 600;
+  }
+
+  .comp-table .price-cell {
+    font-weight: 700;
+  }
+
+  /* INVESTMENT THESIS */
+  .thesis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .thesis-card {
+    padding: 20px 24px;
+    border-radius: 10px;
+    border-left: 4px solid;
+  }
+
+  .thesis-card.pro {
+    background: rgba(39, 174, 96, 0.06);
+    border-color: var(--green);
+  }
+
+  .thesis-card.con {
+    background: rgba(231, 76, 60, 0.06);
+    border-color: var(--red);
+  }
+
+  .thesis-card h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .thesis-card.pro h4 { color: var(--green); }
+  .thesis-card.con h4 { color: var(--red); }
+
+  .thesis-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .thesis-item:last-child { margin-bottom: 0; }
+
+  .thesis-item .bullet {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+
+  .thesis-card.pro .bullet { background: var(--green); }
+  .thesis-card.con .bullet { background: var(--red); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--light-grey);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--light-grey);
+    border: 2px solid var(--white);
+  }
+
+  .timeline-item.active::before {
+    background: var(--pink);
+  }
+
+  .timeline-item .tl-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--grey);
+    width: 85px;
+    flex-shrink: 0;
+  }
+
+  .timeline-item .tl-content {
+    font-size: 13px;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .timeline-item .tl-content strong {
+    font-weight: 700;
+  }
+
+  .timeline-item .tl-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 6px;
+  }
+
+  .tl-tag.sold { background: rgba(39,174,96,0.12); color: var(--green); }
+  .tl-tag.listed { background: rgba(233,30,140,0.15); color: #B91C7C; }
+  .tl-tag.rent { background: rgba(138,154,181,0.2); color: var(--grey); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    padding: 32px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer .disclaimer {
+    font-size: 10.5px;
+    color: var(--grey);
+    line-height: 1.6;
+    max-width: 620px;
+  }
+
+  .footer .prepared {
+    text-align: right;
+    font-size: 11px;
+    color: var(--grey);
+  }
+
+  .footer .prepared .date {
+    color: var(--pink);
+    font-weight: 600;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    height: 1px;
+    background: var(--light-grey);
+    margin: 0 0 24px 0;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-tag">Investment Opportunity</div>
+    <h1>78 Alison Road, Randwick</h1>
+    <div class="subtitle">NSW 2031 &nbsp;·&nbsp; Block of Units &nbsp;·&nbsp; Whole Building on One Title</div>
+    <div class="header-stats">
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm0-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm12-3h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">13</div>
+          <div class="label">Bedrooms</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm13 11h-2v-2c0-1.65-1.35-3-3-3h-2c-1.65 0-3 1.35-3 3v2H8v-2c0-1.65-1.35-3-3-3H3c-1.65 0-3 1.35-3 3v2h2V7h2v2h6V7h2v11z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">6</div>
+          <div class="label">Bathrooms</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">3</div>
+          <div class="label">Car Spaces</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">670m²</div>
+          <div class="label">Land Area</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">6</div>
+          <div class="label">Dwellings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE BANNER -->
+  <div class="price-banner">
+    <div class="price-left">
+      <span class="price-label">Auction Guide</span>
+      <span class="price-value">$5,000,000</span>
+    </div>
+    <div class="price-right">
+      <div class="est-label">Estimated Fair Value Range</div>
+      <div class="est-range">$5,500,000 – $6,200,000</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- PROPERTY SNAPSHOT -->
+    <div class="section-title">Property Snapshot</div>
+    <div class="snapshot-grid">
+      <div class="snapshot-card">
+        <h3>Title &amp; Zoning</h3>
+        <div class="detail-row">
+          <span class="detail-label">Lot / Plan</span>
+          <span class="detail-value">Lot 7 DP11300</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Zone</span>
+          <span class="detail-value">R3 — Medium Density Residential</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Council</span>
+          <span class="detail-value">Randwick City Council</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Property Type</span>
+          <span class="detail-value">Block of Units (single title)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Configuration</span>
+          <span class="detail-value">5 Apartments + 1 Residence</span>
+        </div>
+      </div>
+      <div class="snapshot-card">
+        <h3>Sale History</h3>
+        <div class="detail-row">
+          <span class="detail-label">Last Sale</span>
+          <span class="detail-value">$4,201,000 (May 2015)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Sale Method</span>
+          <span class="detail-value">Private Treaty</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Implied Growth</span>
+          <span class="detail-value">~38–48% since purchase</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Current Guide</span>
+          <span class="detail-value">$5,000,000 (Auction)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Guide vs Last Sale</span>
+          <span class="detail-value">+19% ($799K above)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY METRICS -->
+    <div class="section-title">Key Investment Metrics</div>
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-value">~$265K</div>
+        <div class="kpi-label">Est. Gross Income p.a.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">4.5–5.3%</div>
+        <div class="kpi-label">Indicative Yield at $5M</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">$7,463</div>
+        <div class="kpi-label">Price / m² of Land</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">$833K</div>
+        <div class="kpi-label">Price Per Dwelling</div>
+      </div>
+    </div>
+
+    <!-- VALUATION APPROACHES -->
+    <div class="section-title">Valuation Triangulation</div>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="val-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+        </div>
+        <div class="val-method">Capital Growth</div>
+        <div class="val-range">$5.75M – $5.88M</div>
+        <div class="val-desc">Applying Randwick's 37–40% median unit growth since 2015 to the $4.201M purchase price.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <div class="val-method">Income / Yield</div>
+        <div class="val-range">$5.2M – $5.9M</div>
+        <div class="val-desc">Based on est. $265K gross income at 4.5–5.0% yield — typical for eastern suburbs unit blocks.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <div class="val-method">Comparables</div>
+        <div class="val-range">$5.7M – $6.4M</div>
+        <div class="val-desc">Benchmarked against recent Randwick block sales at $8,500–$9,500/m² of land area.</div>
+      </div>
+    </div>
+
+    <!-- MARKET CONTEXT -->
+    <div class="section-title">Randwick Unit Market — Suburb Insights</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <h3>Median Unit Values (Annual)</h3>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2025</span>
+          <div class="bar-track">
+            <div class="bar-fill pink" style="width:100%"><span>$1.308M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2024</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:94%"><span>$1.226M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2023</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:87%"><span>$1.134M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2022</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:79%"><span>$1.028M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2021</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:92%"><span>$1.201M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2020</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:73%"><span>$960K</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="market-card">
+        <h3>Key Market Indicators</h3>
+        <div class="metric-row">
+          <span class="metric-label">Median Weekly Rent</span>
+          <span class="metric-value">$850/wk <span class="metric-change up">+3.0%</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Gross Rental Yield</span>
+          <span class="metric-value">3.79% <span class="metric-change up">+0.06pp</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Median Days on Market</span>
+          <span class="metric-value">33 days <span class="metric-change up">-5 days</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Median Vendor Discount</span>
+          <span class="metric-value">2.22% <span class="metric-change up">-2.5pp</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Properties Sold (12m)</span>
+          <span class="metric-value">441 <span class="metric-change up">+12%</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">12-Month Value Growth</span>
+          <span class="metric-value">6.73%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARABLE SALES -->
+    <div class="section-title">Comparable Block Sales — Eastern Suburbs</div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Units</th>
+          <th>Land</th>
+          <th>Price</th>
+          <th>$/m²</th>
+          <th>$/Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>143 Clovelly Rd, Randwick</td>
+          <td>9</td>
+          <td>808m²</td>
+          <td class="price-cell">$9,100,000</td>
+          <td>$11,264</td>
+          <td>$1,011,111</td>
+        </tr>
+        <tr>
+          <td>18 Church St, Randwick</td>
+          <td>6</td>
+          <td>—</td>
+          <td class="price-cell">~$8,000,000</td>
+          <td>—</td>
+          <td>$1,333,333</td>
+        </tr>
+        <tr>
+          <td>229–231 Avoca St, Randwick</td>
+          <td>16</td>
+          <td>980m²</td>
+          <td class="price-cell">EOI (Dec '25)</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>78 Alison Rd, Randwick</td>
+          <td>6</td>
+          <td>670m²</td>
+          <td class="price-cell">Guide $5,000,000</td>
+          <td>$7,463</td>
+          <td>$833,333</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PROPERTY TIMELINE -->
+    <div class="section-title">Property Activity Timeline</div>
+    <div class="timeline">
+      <div class="timeline-item active">
+        <span class="tl-date">Feb 2026</span>
+        <div class="tl-content">Currently listed — <strong>Auction, Guide $5,000,000</strong> <span class="tl-tag listed">Listed</span></div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">Apr 2021</span>
+        <div class="tl-content">Listed for auction 8 May — 30 days on market, <strong>no sale recorded</strong> <span class="tl-tag listed">Listed</span></div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">Oct 2019</span>
+        <div class="tl-content">Unit listed for rent at <strong>$595/wk</strong> — 76 days on market <span class="tl-tag rent">Rent</span></div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">Aug 2015</span>
+        <div class="tl-content">Listed for rent at <strong>$1,390/wk</strong> — 15 days on market <span class="tl-tag rent">Rent</span></div>
+      </div>
+      <div class="timeline-item active">
+        <span class="tl-date">May 2015</span>
+        <div class="tl-content">Sold — <strong>$4,201,000</strong> via Private Treaty <span class="tl-tag sold">Sold</span></div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">Apr 2015</span>
+        <div class="tl-content">Listed for auction by LJ Hooker Commercial — 26 days on market <span class="tl-tag listed">Listed</span></div>
+      </div>
+    </div>
+
+    <!-- INVESTMENT THESIS -->
+    <div class="section-title">Investment Considerations</div>
+    <div class="thesis-grid">
+      <div class="thesis-card pro">
+        <h4>Strengths</h4>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Auction guide sits ~10–19% below estimated fair value range, suggesting upside at the guide price</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>R3 Medium Density zoning with potential development uplift under recent LMR planning reforms</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>6 dwellings on one title — strong diversified rental income with low vacancy risk</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Randwick unit market showing 6.73% annual growth, underpinned by strong fundamentals</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Premium location — walking distance to light rail, UNSW, hospitals, and Coogee Beach</div>
+        </div>
+      </div>
+      <div class="thesis-card con">
+        <h4>Risks &amp; Considerations</h4>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>2021 auction campaign failed to produce a sale — vendor expectations may have exceeded market willingness</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Cotality unable to produce AVM estimate — limited transactional data for comparable whole-block sales</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Older building stock — potential for significant capital expenditure on maintenance and upgrades</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Single-title block lacks strata — all maintenance costs borne entirely by owner</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Interest rate environment and lending conditions for commercial-scale residential assets</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="disclaimer">
+      This document is for informational purposes only and does not constitute financial, legal or investment advice.
+      Data sourced from Cotality (CoreLogic), public records and Claude AI market research. Valuation estimates,
+      comparable sales analysis and investment commentary prepared by Claude AI. All estimates are indicative only —
+      a formal valuation from a registered valuer is recommended prior to any investment decision.
+    </div>
+    <div class="prepared">
+      Prepared <span class="date">10 February 2026</span><br>
+      Sources: Cotality / RPData<br>
+      &amp; Claude AI Market Research
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

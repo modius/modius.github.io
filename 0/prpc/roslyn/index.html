@@ -1,0 +1,1198 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Overview — 17 Roslyn Gardens, Elizabeth Bay</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --dark: #1E1E2E;
+    --dark-light: #2A2A3E;
+    --pink: #E91E8C;
+    --pink-light: #F9A8D4;
+    --white: #FFFFFF;
+    --off-white: #FFF8FB;
+    --grey: #8A8A9F;
+    --light-grey: #F0EBF0;
+    --green: #27AE60;
+    --red: #E74C3C;
+    --teal: #9D174D;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+    padding: 48px 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border: 2px solid rgba(233, 30, 140, 0.15);
+    border-radius: 50%;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: 60px;
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgba(233, 30, 140, 0.1);
+    border-radius: 50%;
+  }
+
+  .header-tag {
+    display: inline-block;
+    background: rgba(233, 30, 140, 0.15);
+    color: var(--pink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--grey);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-stat .icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-stat .icon-circle svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--pink);
+  }
+
+  .header-stat .stat-text .num {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .header-stat .stat-text .label {
+    font-size: 11px;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* PRICE BANNER */
+  .price-banner {
+    background: linear-gradient(90deg, var(--pink) 0%, #F472B6 100%);
+    padding: 20px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price-banner .price-left {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .price-banner .price-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+  }
+
+  .price-banner .price-value {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--dark);
+  }
+
+  .price-banner .price-right {
+    text-align: right;
+  }
+
+  .price-banner .price-right .est-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+  }
+
+  .price-banner .price-right .est-range {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  /* BODY CONTENT */
+  .content {
+    padding: 40px 56px;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-grey);
+  }
+
+  /* HERITAGE CALLOUT */
+  .heritage-callout {
+    background: linear-gradient(135deg, #FFF5F9 0%, #FFE8F3 100%);
+    border: 1px solid #F9A8D4;
+    border-left: 4px solid var(--pink);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+
+  .heritage-callout h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .heritage-callout h3 svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--pink);
+  }
+
+  .heritage-callout p {
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* SNAPSHOT GRID */
+  .snapshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .snapshot-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .snapshot-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 14px;
+  }
+
+  .detail-row:last-child { border-bottom: none; }
+
+  .detail-row .detail-label {
+    color: var(--grey);
+    font-weight: 400;
+  }
+
+  .detail-row .detail-value {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* KPI CARDS */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .kpi-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--pink);
+  }
+
+  .kpi-card .kpi-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .kpi-card .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .kpi-card .kpi-sub {
+    font-size: 10px;
+    color: var(--grey);
+    margin-top: 2px;
+  }
+
+  /* VALUATION METHODS */
+  .val-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .val-card {
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .val-card .val-method {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 6px;
+  }
+
+  .val-card .val-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(233, 30, 140, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .val-card .val-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--pink);
+  }
+
+  .val-card .val-range {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .val-card .val-desc {
+    font-size: 12.5px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* MARKET CONTEXT */
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .market-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .market-card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .bar-chart-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .bar-label {
+    font-size: 12px;
+    color: var(--grey);
+    width: 68px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--dark) 0%, var(--dark-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+  }
+
+  .bar-fill.pink { background: linear-gradient(90deg, var(--pink) 0%, #F472B6 100%); }
+
+  .bar-fill span {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .metric-row:last-child { border-bottom: none; }
+
+  .metric-row .metric-label {
+    font-size: 13px;
+    color: var(--grey);
+  }
+
+  .metric-row .metric-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .metric-row .metric-change {
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
+  .metric-change.up { color: var(--green); }
+  .metric-change.down { color: var(--red); }
+
+  /* COMPARABLE SALES TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 13px;
+  }
+
+  .comp-table thead th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--grey);
+    padding: 12px 14px;
+    border-bottom: 2px solid var(--light-grey);
+  }
+
+  .comp-table tbody td {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--light-grey);
+    color: var(--dark);
+  }
+
+  .comp-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comp-table .highlight-row td {
+    background: rgba(233, 30, 140, 0.06);
+    font-weight: 600;
+  }
+
+  .comp-table .same-street td {
+    background: rgba(157, 23, 77, 0.06);
+  }
+
+  .comp-table .price-cell {
+    font-weight: 700;
+  }
+
+  .comp-table .street-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: rgba(157, 23, 77, 0.12);
+    color: var(--teal);
+    margin-left: 6px;
+  }
+
+  /* INVESTMENT THESIS */
+  .thesis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .thesis-card {
+    padding: 20px 24px;
+    border-radius: 10px;
+    border-left: 4px solid;
+  }
+
+  .thesis-card.pro {
+    background: rgba(39, 174, 96, 0.06);
+    border-color: var(--green);
+  }
+
+  .thesis-card.con {
+    background: rgba(231, 76, 60, 0.06);
+    border-color: var(--red);
+  }
+
+  .thesis-card h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .thesis-card.pro h4 { color: var(--green); }
+  .thesis-card.con h4 { color: var(--red); }
+
+  .thesis-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .thesis-item:last-child { margin-bottom: 0; }
+
+  .thesis-item .bullet {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+
+  .thesis-card.pro .bullet { background: var(--green); }
+  .thesis-card.con .bullet { background: var(--red); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--light-grey);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--light-grey);
+    border: 2px solid var(--white);
+  }
+
+  .timeline-item.active::before {
+    background: var(--pink);
+  }
+
+  .timeline-item .tl-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--grey);
+    width: 85px;
+    flex-shrink: 0;
+  }
+
+  .timeline-item .tl-content {
+    font-size: 13px;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .timeline-item .tl-content strong {
+    font-weight: 700;
+  }
+
+  .timeline-item .tl-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 6px;
+  }
+
+  .tl-tag.sold { background: rgba(39,174,96,0.12); color: var(--green); }
+  .tl-tag.listed { background: rgba(233, 30, 140,0.15); color: #B91C7C; }
+  .tl-tag.context { background: rgba(157, 23, 77,0.12); color: var(--teal); }
+
+  /* SCARCITY CALLOUT */
+  .scarcity-banner {
+    background: var(--dark);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .scarcity-stat {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .scarcity-stat .big-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--pink);
+    line-height: 1;
+  }
+
+  .scarcity-stat .big-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .scarcity-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+  }
+
+  .scarcity-text strong {
+    color: var(--white);
+  }
+
+  .scarcity-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    padding: 32px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer .disclaimer {
+    font-size: 10.5px;
+    color: var(--grey);
+    line-height: 1.6;
+    max-width: 620px;
+  }
+
+  .footer .prepared {
+    text-align: right;
+    font-size: 11px;
+    color: var(--grey);
+  }
+
+  .footer .prepared .date {
+    color: var(--pink);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-tag">Investment Opportunity</div>
+    <h1>17 Roslyn Gardens, Elizabeth Bay</h1>
+    <div class="subtitle">NSW 2011 &nbsp;·&nbsp; Victorian Italianate Terrace &nbsp;·&nbsp; Heritage Conservation Area</div>
+    <div class="header-stats">
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm0-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm12-3h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">5</div>
+          <div class="label">Bedrooms</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm13 11h-2v-2c0-1.65-1.35-3-3-3h-2c-1.65 0-3 1.35-3 3v2H8v-2c0-1.65-1.35-3-3-3H3c-1.65 0-3 1.35-3 3v2h2V7h2v2h6V7h2v11z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">4</div>
+          <div class="label">Bathrooms</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">1</div>
+          <div class="label">Carport</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">187m²</div>
+          <div class="label">Land Area</div>
+        </div>
+      </div>
+      <div class="header-stat">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </div>
+        <div class="stat-text">
+          <div class="num">5 Levels</div>
+          <div class="label">Brent Terraces</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE BANNER -->
+  <div class="price-banner">
+    <div class="price-left">
+      <span class="price-label">Estimated Fair Value</span>
+      <span class="price-value">$6,500,000 – $7,500,000</span>
+    </div>
+    <div class="price-right">
+      <div class="est-label">Cotality AVM (based on incorrect 2-bed data)</div>
+      <div class="est-range">$3,300,000 (range $2.6M–$3.98M)</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="content">
+
+    <!-- HERITAGE CALLOUT -->
+    <div class="heritage-callout">
+      <h3>
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6 3v5.64l-6 3-6-3V7.18l6-3z"/></svg>
+        Heritage Landmark — The Brent Terraces
+      </h3>
+      <p>
+        17 Roslyn Gardens is one of eight grand Victorian Italianate terraces known as the Brent Terraces (Nos. 13A–27), built c.1890. Spanning five levels with 5 bedrooms and 4 bathrooms, the property is very well maintained and retains many period features alongside some of the characterful quirks of its heritage layout. The landmark row features ornate cast-iron lacework balconies, and the property includes a carport. It sits within the Elizabeth Bay / Rushcutters Bay Heritage Conservation Area, one of Sydney's most architecturally significant inner-city precincts. <strong>Note:</strong> The Cotality AVM of $3.3M was generated using incorrect data (2 bed / 2 bath) and should be disregarded in favour of the comparable sales evidence below.
+      </p>
+    </div>
+
+    <!-- PROPERTY SNAPSHOT -->
+    <div class="section-title">Property Snapshot</div>
+    <div class="snapshot-grid">
+      <div class="snapshot-card">
+        <h3>Title &amp; Zoning</h3>
+        <div class="detail-row">
+          <span class="detail-label">Lot / Plan</span>
+          <span class="detail-value">Lot 3 DP11550</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Zone</span>
+          <span class="detail-value">A — Residential</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Council</span>
+          <span class="detail-value">City of Sydney</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Property Type</span>
+          <span class="detail-value">House (Victorian Terrace)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Heritage</span>
+          <span class="detail-value">Conservation Area</span>
+        </div>
+      </div>
+      <div class="snapshot-card">
+        <h3>Sale History</h3>
+        <div class="detail-row">
+          <span class="detail-label">Last Sale</span>
+          <span class="detail-value">$1,350,000 (Apr 2000)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Previous Sale</span>
+          <span class="detail-value">$100,000 (Apr 1987)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Cotality AVM</span>
+          <span class="detail-value">$3,300,000 (incorrect data)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Est. Fair Value</span>
+          <span class="detail-value">$6,500,000 – $7,500,000</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Basis</span>
+          <span class="detail-value">Same-row sales 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCARCITY BANNER -->
+    <div class="section-title">Market Scarcity</div>
+    <div class="scarcity-banner">
+      <div class="scarcity-stat">
+        <div class="big-num">~24</div>
+        <div class="big-label">Houses in<br>Elizabeth Bay</div>
+      </div>
+      <div class="scarcity-divider"></div>
+      <div class="scarcity-text">
+        Elizabeth Bay is overwhelmingly apartment stock. Of approximately 3,200 dwellings, only <strong>~10 are freestanding houses</strong> and <strong>~14 are semi-detached or terraces</strong> — just 0.8% of total housing. House sales are so rare (1–4 per year) that neither Domain nor realestate.com.au can reliably calculate a median house price. This extreme scarcity underpins premium pricing and long-term capital resilience.
+      </div>
+    </div>
+
+    <!-- KEY METRICS -->
+    <div class="section-title">Key Metrics</div>
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-value">~$37,400</div>
+        <div class="kpi-label">Est. Value / m² of Land</div>
+        <div class="kpi-sub">at $7M mid-point</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">+419%</div>
+        <div class="kpi-label">Growth Since 2000</div>
+        <div class="kpi-sub">$1.35M → ~$7M est.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">~$2,000/wk</div>
+        <div class="kpi-label">Est. Rent (5 bed)</div>
+        <div class="kpi-sub">based on nearby comps</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">~1.5%</div>
+        <div class="kpi-label">Indicative Yield</div>
+        <div class="kpi-sub">capital growth play</div>
+      </div>
+    </div>
+
+    <!-- VALUATION APPROACHES -->
+    <div class="section-title">Valuation Context</div>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="val-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <div class="val-method">Same-Row Sales (Primary)</div>
+        <div class="val-range">$7.2M – $7.5M</div>
+        <div class="val-desc">13A &amp; 21 Roslyn Gardens (same Brent Terrace row) sold in 2024 for $7.5M and $7.225M. With 5 bed / 4 bath and well maintained condition, No. 17 is directly comparable.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+        </div>
+        <div class="val-method">Roslyn Gardens Wider</div>
+        <div class="val-range">$4.4M – $7.5M</div>
+        <div class="val-desc">44 Roslyn Gardens sold for $4.4M in 2020. Applying 7% p.a. growth to today gives ~$6.2M, consistent with the $7M+ achieved by fully renovated row neighbours.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <div class="val-method">Cotality AVM (Disregard)</div>
+        <div class="val-range" style="color:var(--grey); text-decoration:line-through;">$3,300,000</div>
+        <div class="val-desc">Generated using incorrect 2-bed / 2-bath data. The actual property is 5 bed / 4 bath / 5 levels with carport — the AVM substantially undervalues the property.</div>
+      </div>
+    </div>
+
+    <!-- COMPARABLE SALES TABLE -->
+    <div class="section-title">Comparable Sales</div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Config</th>
+          <th>Land / Floor</th>
+          <th>Price</th>
+          <th>Sale Date</th>
+          <th>DOM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="same-street">
+          <td>13A Roslyn Gdns, Elizabeth Bay <span class="street-badge">Same Row</span></td>
+          <td>4 bed / —</td>
+          <td>—</td>
+          <td class="price-cell">$7,500,000</td>
+          <td>2024</td>
+          <td>—</td>
+        </tr>
+        <tr class="same-street">
+          <td>21 Roslyn Gdns, Elizabeth Bay <span class="street-badge">Same Row</span></td>
+          <td>4 bed / 2 bath</td>
+          <td>—</td>
+          <td class="price-cell">$7,225,000</td>
+          <td>Feb 2024</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>44 Roslyn Gdns, Elizabeth Bay</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="price-cell">$4,400,000</td>
+          <td>2020</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>25 Womerah Ave, Darlinghurst</td>
+          <td>4 bed / 3 bath / 2 car</td>
+          <td>195m² / 156m²</td>
+          <td class="price-cell">$3,550,000</td>
+          <td>Oct 2025</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td>3 Ormond St, Paddington</td>
+          <td>3 bed / 2 bath</td>
+          <td>164m² / 137m²</td>
+          <td class="price-cell">$3,610,000</td>
+          <td>Aug 2025</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>3 Oatley Rd, Paddington</td>
+          <td>3 bed / 2 bath</td>
+          <td>140m² / 139m²</td>
+          <td class="price-cell">$3,350,000</td>
+          <td>Oct 2025</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>23 Hopewell St, Paddington</td>
+          <td>3 bed / 2 bath</td>
+          <td>— / 125m²</td>
+          <td class="price-cell">$3,200,000</td>
+          <td>Nov 2025</td>
+          <td>14</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>17 Roslyn Gdns, Elizabeth Bay</td>
+          <td>5 bed / 4 bath / 1 carport</td>
+          <td>187m²</td>
+          <td class="price-cell">Est. $6.5M–$7.5M</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- MARKET CONTEXT -->
+    <div class="section-title">Elizabeth Bay House Market — Suburb Insights</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <h3>Median House Values (Annual)</h3>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2025</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:79%"><span>$4.27M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2024</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:81%"><span>$4.34M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2023</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:91%"><span>$4.89M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2022</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:85%"><span>$4.56M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2021</span>
+          <div class="bar-track">
+            <div class="bar-fill pink" style="width:100%"><span>$5.37M</span></div>
+          </div>
+        </div>
+        <div class="bar-chart-row">
+          <span class="bar-label">Oct 2020</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:55%"><span>$2.94M</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="market-card">
+        <h3>Key Market Indicators</h3>
+        <div class="metric-row">
+          <span class="metric-label">Median Weekly Rent (Houses)</span>
+          <span class="metric-value">$665/wk <span class="metric-change up">+2.3%</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Gross Rental Yield</span>
+          <span class="metric-value">1.39% <span class="metric-change down">-0.10pp</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">House Sales (12m to Oct 2025)</span>
+          <span class="metric-value">1 sale</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Median Value Change (12m)</span>
+          <span class="metric-value">-1.73%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Sydney 2026 Forecast (Houses)</span>
+          <span class="metric-value">+7% <span class="metric-change up">Domain</span></span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Caveat</span>
+          <span class="metric-value" style="font-size:12px; font-weight:500;">1–4 sales/yr — medians volatile</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROPERTY TIMELINE -->
+    <div class="section-title">Property &amp; Street Timeline</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="tl-date">2024</span>
+        <div class="tl-content">13A Roslyn Gdns sold <strong>$7,500,000</strong> — same Brent Terrace row <span class="tl-tag context">Context</span></div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">Feb 2024</span>
+        <div class="tl-content">21 Roslyn Gdns sold <strong>$7,225,000</strong> — same Brent Terrace row <span class="tl-tag context">Context</span></div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">2020</span>
+        <div class="tl-content">44 Roslyn Gdns sold <strong>$4,400,000</strong> <span class="tl-tag context">Context</span></div>
+      </div>
+      <div class="timeline-item active">
+        <span class="tl-date">Apr 2000</span>
+        <div class="tl-content">17 Roslyn Gdns sold — <strong>$1,350,000</strong> <span class="tl-tag sold">Sold</span></div>
+      </div>
+      <div class="timeline-item active">
+        <span class="tl-date">Apr 1987</span>
+        <div class="tl-content">17 Roslyn Gdns sold — <strong>$100,000</strong> <span class="tl-tag sold">Sold</span></div>
+      </div>
+    </div>
+
+    <!-- INVESTMENT THESIS -->
+    <div class="section-title">Investment Considerations</div>
+    <div class="thesis-grid">
+      <div class="thesis-card pro">
+        <h4>Strengths</h4>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Part of the iconic Brent Terraces — a landmark heritage row with irreplaceable architectural significance</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>5 bed / 4 bath / 5 levels — well maintained with many period features, directly comparable to $7.2–7.5M same-row sales in 2024</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Extreme scarcity — fewer than 24 houses in Elizabeth Bay; turnover of 1–4 per year creates a structurally tight market</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Includes carport — a genuine rarity in Elizabeth Bay where off-street parking commands a significant premium</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Premium inner-east location — walking distance to CBD, harbour foreshore, Rushcutters Bay Park, and Kings Cross station</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Domain forecasts +7% house price growth for Sydney in FY2026, with early 2026 offering strongest momentum</div>
+        </div>
+      </div>
+      <div class="thesis-card con">
+        <h4>Risks &amp; Considerations</h4>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Heritage layout retains some quirky elements — may not suit all buyers and could limit reconfiguration options</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Heritage Conservation Area restrictions apply to any external alterations, potentially increasing renovation costs</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Extremely low rental yield (~1.5%) — this is a capital-growth and lifestyle play, not an income-generating asset</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Volatile suburb medians due to tiny sample sizes (1–4 house sales per year) — long-term growth trends hard to track reliably</div>
+        </div>
+        <div class="thesis-item">
+          <div class="bullet"></div>
+          <div>Cotality AVM was generated on incorrect data — independent valuation essential before any transaction</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="disclaimer">
+      This document is for informational purposes only and does not constitute financial, legal or investment advice.
+      Data sourced from Cotality (CoreLogic), public records and Claude AI market research. Valuation context,
+      comparable sales analysis and investment commentary prepared by Claude AI. All estimates are indicative only —
+      a formal valuation from a registered valuer is recommended prior to any investment decision.
+    </div>
+    <div class="prepared">
+      Prepared <span class="date">10 February 2026</span><br>
+      Sources: Cotality / RPData<br>
+      &amp; Claude AI Market Research
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
