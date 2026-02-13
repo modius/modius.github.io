@@ -1,0 +1,308 @@
+---
+layout: zero
+title: "BGG@SEA 2026 — Checklist"
+sitemap: false
+---
+# BGG@SEA 2026 — Cruise Preparation Checklist
+
+**Ship:** Anthem of the Seas
+**Dates:** Sun 15 Feb – Fri 27 Feb 2026 (12 nights)
+**Departure:** Sydney (Overseas Passenger Terminal, The Rocks) · Sails **5:00 PM**
+**Booking ID:** 6044580 · **Group ID:** 4786522 (BGG@SEA group)
+**Travellers:** Geoff Bowers (Badge #175) + Julie Steadman (Badge #176) — ✅ Both checked in
+**Cabin:** Junior Suite (J4), Deck 6, Stateroom 638 (Sea Class)
+**Muster Station:** D1
+**Dining:** ✅ **5:00 PM Main Dining** (confirmed in Guest Ticket Booklet)
+**Suite Perks (Sea Class):** Coastal Kitchen dinner access, bathrobes, luxury amenities, memory foam mattress
+**Purchased Add-ons:** The Key (VIP program — includes internet, VIP seating, etc.)
+**Total Paid (BGG@SEA):** $6,875.74 ($1,200 deposit + $5,675.74 remainder — Receipt #1192359)
+**Refund Deadline:** Passed (28 Nov 2025)
+**Daily Gratuities:** US$18.50/guest/day auto-added to SeaPass (+ 18% on beverages/room service, 20% on spa)
+
+---
+
+## ✅ Julie — Confirmed & Checked In
+
+- [x] ~~Julie to confirm~~ ✅ Going — checked in
+- [x] ~~Julie's check-in~~ ✅ Complete
+- [ ] Confirm Julie's passport validity (6 months from departure = valid until at least 15 Aug 2026)
+- [ ] Verify **Julie's** badge (#176) on tabletop.events matches 5:00 PM Main Dining
+
+---
+
+## 🔴 CRITICAL — Do Immediately (Before Feb 15)
+
+### 🚨 Stateroom Request Form — Deadline TODAY (Feb 13)
+RC's pre-cruise email says the Stateroom Form for optional requests is only accepted **2 days prior to sailing**. That's today.
+
+- [ ] **Submit Stateroom Request Form** — any cabin preferences (bed configuration, special requests, etc.). Access via the link in the RC email or app. If you miss the deadline, ask your stateroom attendant on boarding day.
+
+### 1. Royal Caribbean App + Check-In
+- [x] ~~Download the **Royal Caribbean app** (iOS / Android)~~ ✅ Done
+- [x] ~~**Complete online check-in for Geoff**~~ ✅ Travel info done, arrival time **2:30pm Feb 15**
+  - [x] ~~Upload photo~~ ✅
+  - [x] ~~Enter travel document info (passport details)~~ ✅
+  - [x] ~~Select arrival time at port~~ ✅ 2:30pm
+  - [ ] Complete health declaration — **opens Feb 14**
+  - [ ] Set up **SeaPass account** (link a credit/debit card) — check if done. ℹ️ Onboard charges are in **USD** — a credit card hold is placed daily against your spend. Extra authorisations returned 7–10 business days after the cruise.
+  - [ ] **E-muster steps 1 & 2:** Watch the safety video and listen to the emergency horn in the app — can be completed the **night before** (Feb 14). Step 3 (muster station check-in) is done on board.
+- [x] ~~Complete online check-in for **Julie Steadman**~~ ✅ Checked in
+- [ ] Review the **safety videos** in the app (red life preserver button) — part of e-muster
+- [ ] **Tell your bank you're travelling** — RC infographic recommends this to avoid card blocks. Charges are in USD.
+- [x] ~~Note your **Muster Station** location~~ ✅ **Muster Station D1**
+- [x] ~~Obtain your **SetSail Pass**~~ ✅ Available in app
+
+> ℹ️ **Arrival time is 2:30pm** — the earliest slot available. Ship sails at 5:00pm (all aboard ~4pm). You'll miss The Key welcome lunch (noon–1:30pm) but have plenty of buffer. Both Geoff and Julie are checked in.
+>
+> ⚠️ **RC pre-cruise email (Feb 13):** Arrive during your pre-selected arrival time — you risk being turned away if you arrive outside it. Keep SetSail Pass and travel documents **in hand** (don't pack them in checked luggage or you may be denied boarding).
+
+### 2. Verify Passport Expiry
+- [x] ~~Confirm **Geoff's** passport is valid until at least **27 August 2026** (6 months after return date)~~ ✅ Confirmed
+- [ ] Confirm **Julie's** passport validity (must be valid until at least 15 Aug 2026)
+- [ ] Confirm names on both passports match the legal names on the RC booking
+
+### 3. Verify Badge Info — Dining CONFIRMED ✅
+The RC Guest Ticket Booklet confirms **Dining: 5:00 PM** — you're on **Main Dining** with the BGG group. Still worth verifying on tabletop.events that it matches.
+
+- [x] ~~Verify **Geoff's** dining preference~~ ✅ **5:00 PM Main Dining** (confirmed in Guest Ticket Booklet)
+- [ ] Verify **Julie's** badge (#176) matches on tabletop.events — should also be 5:00 PM Main Dining
+- [ ] If anything looks wrong, email the organisers ASAP: **info@tabletop.events** or **jeff@qwyx.events**
+
+> **Main Dining** = 5:00pm, seated with other gamers (most people are on this). ✅ **You're on this.**
+
+---
+
+## 🟡 IMPORTANT — Do Before Sailing
+
+### 4. New Zealand Traveller Declaration (NZTD)
+Required for **all** passengers, including Australian citizens. Free, takes ~10 minutes.
+
+- [ ] Download the **NZTD app** now (Apple App Store / Google Play) — requires internet to download, so do this before the ship
+- [ ] Alternatively, bookmark: **www.travellerdeclaration.govt.nz/cruise**
+- [ ] Submit declaration for **Geoff** — can only be submitted from 24 hours before **arriving in NZ** (not before departure). First NZ waters are Feb 18 (sounds), first port is Feb 19 (Dunedin) — so submit from ~Feb 17. RC may also provide a paper form as backup.
+- [ ] Submit declaration for **Julie** — separate declaration required for each traveller
+
+### 5. Things You Do NOT Need (as Australian Citizens)
+Good news — these requirements from the emails do **not** apply to you:
+
+- ~~Australian ETA~~ — Not required (you're citizens)
+- ~~NZeTA~~ — Not required (Australian citizens are exempt)
+
+### 6. Packing Essentials
+
+**Carry-on bag** (luggage is dropped at the terminal and delivered to your room later that evening — keep essentials with you):
+
+- [ ] Passport(s) — **in hand at all times through terminal**
+- [ ] **SetSail Pass** (app or printed backup) — **in hand at all times**
+- [ ] Medications (keep in carry-on, not checked luggage)
+- [ ] **Travel adaptor** — two-pin North American or European power outlets (confirmed by RC infographic)
+- [ ] Swimmers / change of clothes (staterooms not ready until ~1pm)
+- [ ] Sunscreen
+- [ ] Phone charger
+- [ ] Valuables
+
+**Checked luggage:**
+
+- [ ] **Print luggage tags** from Vacation Documents (RC app or email) — attach to bags before arriving at port
+- [ ] Formal/smart casual attire — RC has **theme nights** including 'Dress Your Best'. Check the Daily Planner → 'Tonight's Attire' in the app for each evening.
+- [ ] Medications (12+ days' worth, plus spares in case of delays — keep a supply in carry-on too)
+- [ ] Seasickness remedies if you're prone (first day or two at sea, plus Milford/Doubtful Sound scenic cruising can be choppy)
+- [ ] **Reef-safe sunscreen** and hat (NZ summer, February) — RC recommends avoiding petrolatum, titanium dioxide, oxybenzone, octocrylene, octinoxate
+- [ ] Any board games you want to bring (there's a community geeklist for attendee-brought games)
+- [ ] Lanyard or cardholder for your SeaPass card — you'll carry it everywhere on the ship
+- [ ] Day bag/small backpack for port excursions
+- [ ] Refillable water bottle for shore excursions
+- [ ] **Overnight bag** for last night at sea — staff collect main luggage the evening before disembarkation; keep night clothes, toiletries, and next-day outfit in an overnight bag
+
+> 🚫 **Prohibited items (confiscated by Security):** Kettles, coffee makers, cooking appliances, clothing irons, travel steamers, extension cords, multi-plug outlets, power strips, sports gear (skateboards, surfboards, etc.), alcoholic beverages (beer, seltzer, spirits). If you were planning to bring a power strip for charging — don't. Bring individual chargers or a multi-port USB charger instead (generally allowed). Your Junior Suite has a **Lavazza espresso machine** so you don't need a coffee maker.
+
+---
+
+## 🟢 Boarding Day — Sunday 15 February
+
+Since you live near Sydney, you'll head to the port on the day.
+
+**Terminal:** Overseas Passenger Terminal, The Rocks — Corner of Argyle and George Streets, Circular Quay West, The Rocks NSW 2000 ([Google Maps](https://goo.gl/maps/4d8iKxxY7hH2)). No long-term parking at the pier — ride-share or drop-off. Check for CBD road closures before heading out.
+
+- [ ] **Verify travel documents** — RC email says guests without all necessary documents will be denied boarding. Confirm passport + SetSail Pass are ready and in hand.
+- [ ] Plan transport to port — ride-share or drop-off (no parking available)
+
+> 🍷 **Alcohol policy:** Each guest may bring **1 sealed 750ml bottle of wine or champagne** on embarkation day (carry-on only — wine in checked luggage won't be delivered to room until after sailing). Non-alcoholic beverages: max 12 standard cans/bottles per stateroom. Drinking age is 18 (departing Australia/NZ).
+
+> ℹ️ **Pro tip from RC:** Staterooms won't be ready upon early boarding. Arriving later means shorter lines at the Windjammer and quicker access to your stateroom. Your 2:30pm arrival time is actually well-timed for this.
+
+### The Key — Boarding Day Perks
+- **Welcome lunch** on Deck 4 Main Dining Room, noon–1:30pm (exclusive to Key holders)
+- **Carry-on luggage drop-off** at Deck 4 Main Dining Room until 1:30pm (delivered to your cabin, max 2 bags, 25lbs each)
+- Note: RC states priority boarding access is **not offered at Australian ports** — so the priority check-in lane may not apply in Sydney. You'll still benefit from The Key at NZ ports and onboard.
+
+### Terminal Steps (from RC infographic)
+1. Arrive at your pre-selected arrival time (2:30pm)
+2. Have passport + SetSail Pass **in hand** as you enter the terminal
+3. Drop checked luggage at the allocated area (luggage tags must be attached)
+4. Proceed through the terminal — all guests go through security screening
+
+### Once On Board
+- [ ] **Turn on airplane mode** immediately to avoid international roaming charges once the ship sails
+- [ ] Connect to WiFi: select **'WIFI-GUEST-SHIP'** (The Key includes VOOM Surf+Stream)
+- [ ] **Report to Muster Station D1** — crew will scan your SetSail Pass (step 3 of e-muster, mandatory)
+- [ ] Enjoy The Key **welcome lunch** (Deck 4, noon–1:30pm) — you'll arrive at 2:30pm so likely missed
+- [ ] Grab food at **Windjammer, Café@Two70, or Sorrento's Pizza** (all open on boarding day)
+- [ ] Cabins available from ~**1:00pm** (announcement when ready)
+- [ ] Collect your **SeaPass cards** from the mail slot next to your cabin door
+  - Verify the names are correct (legal names matching passports)
+  - Test that the cards work on the door
+  - Note your dining table assignment on the card
+- [ ] **Check in with Jeff or Kristine** before dinner — dining table assignments are often wrong and they can fix them
+- [ ] Visit the **Conference Centre, Deck 13 AFT** — the BGG@SEA hub. They'll have goodies and info. (Note: you walk through a hallway of cabins to get there.)
+- [ ] **Book specialty restaurants for 20% off** — The Key perk, must be reserved on Day 1. Do this early!
+- [ ] **Reserve show seats** — required on Quantum-class ships (Anthem). Royal Theater, AquaTheater, Studio B, Two70.
+
+> 💡 **Hot tip from RC:** Digital signage is located next to elevators on every deck. Can't find your room? Enter your room number and it will show you the way!
+
+---
+
+## 📋 During the Cruise
+
+### The Key — Full Perks (from RC App)
+- **Priority terminal access:** Designated arrival time gives priority access on Day 1 (details via email, may vary by port — Sydney may not offer priority lane)
+- **Carry-on bag drop-off:** Main Dining Room until 1:30pm, delivered to your stateroom
+- **Welcome lunch:** Exclusive à la carte lunch in Main Dining Room, The Key Signature menu
+- **20% off specialty restaurants:** Make reservations on Day 1 onboard. Subject to availability. ⚠️ Do this early!
+- **50% off select sports activities:** Reserve once onboard, subject to availability
+- **Spa credit:** $60 off spa services with minimum $250 spend (excl. gratuities/taxes). One-time use, not combinable. Reserve onboard.
+- **Internet:** VOOM Surf & Stream 1 device, high-speed
+- **Fast lane:** Access to select onboard activities (rock climbing, zip line, etc.)
+- **Priority tender departures:** Ship-to-shore at NZ tender ports
+- **VIP show seating:** Dedicated section in Royal Theater, AquaTheater, Studio B, Two70 — **reservations required** on Quantum-class ships (that's Anthem)
+- **Debarkation day:** Exclusive à la carte breakfast + **Choice Departure** (depart at your leisure)
+
+### BGG@SEA Events
+- [ ] **Day 2 (Feb 16):** Welcome Reception — **7:00–8:00pm, Music Hall** (per BGG schedule; newsletter previously said "not finalised" but the schedule has been updated). Complimentary appetisers and drinks, chance to meet other players.
+- [ ] **NZTD submission** — can only be submitted from ~Feb 17 (24hrs before NZ arrival). Must be done before Dunedin (Day 5, Feb 19). RC may provide a paper form as backup.
+- [ ] **Day 7 (Feb 21) — Wellington:** LOTR & Weta Tour at 8am ✅ Booked. Māori Lunch at Te Papa (1pm arrive, 1:30pm lunch) — if purchased, **fill out the form** on tabletop.events. Weta tour bus can drop you at Te Papa. ⚠️ Ship departs 4:30pm — bus return at 4:15pm is very tight.
+- [ ] **Day 11 (Feb 25):** Farewell Reception — **4:00–5:00pm, Music Hall**. Last official BGG@SEA event.
+
+---
+
+## ❓ Decisions / Things to Consider
+
+### Māori Lunch with Game Designers (Wellington — Day 7, Feb 21)
+**Location:** Te Papa, Wellington waterfront (right by the national museum)
+**Weta tour bus** can drop you at the waterfront near the restaurant. Otherwise make your own way there by 1:00pm.
+
+Two options:
+- **Just Lunch** — NZD$120 (~US$70)
+  - 1:00–1:30pm arrive, find seats
+  - 1:30–2:30pm lunch (authentic Māori food)
+  - 2:45–4:15pm free time in Wellington
+  - 4:15pm bus return from Te Papa to port
+- **Lunch + Designer Session** — NZD$150 (~US$90)
+  - 1:00–1:30pm arrive, find seats
+  - 1:30–2:30pm lunch
+  - 2:45–4:00pm facilitated session with Garphill Games designers (Q&A, Design Clinic, "what you didn't see in the final game")
+  - 4:15pm bus return from Te Papa to port
+
+> ⚠️ Bus return at 4:15pm, gangway closes 4:30pm — only **15 minutes buffer**. The "just lunch" option gives you more flexibility to get back early on your own.
+
+**Did you sign up for this?** If so, **fill out the form** on tabletop.events (linked from the purchase page). If not, it may still be available — email **jeff@qwyx.events** to ask.
+
+### RC Shore Excursions
+- [x] ~~**LOTR & Weta Workshop Tour** — Wellington (Day 7, Feb 21), 8:00am, 1 guest (Geoffrey), $219.00~~ ✅ Booked
+  - Tour should get you back in time for the Māori Lunch at Te Papa (1pm) if you've booked that too
+- [ ] Check RC app for other available excursions at remaining ports (many may be sold out)
+
+### ✅ Dining Preferences — CONFIRMED
+Guest Ticket Booklet confirms **5:00 PM Main Dining**. You're with the BGG group.
+
+- [x] ~~Dining confirmed~~ ✅ **5:00 PM Main Dining** — seated with other BGG gamers.
+
+There's also a **table request form** on tabletop.events to request being seated with specific people. By default, everyone in the same cabin is assigned to the same table.
+
+---
+
+## ⏰ Passed Deadlines (No Action Needed)
+
+These deadlines have passed — listed for awareness only:
+
+| Item | Deadline | Status |
+|------|----------|--------|
+| Hobbiton Pre-Cruise Tour | 31 Jan 2026 | Passed — purchase deadline |
+| Game Library Requests | 11 Jan 2026 | Passed — but the library will still be there |
+| RCCL Port Transfer | 31 Jan 2026 | N/A — you live near Sydney |
+| Final Payment | Late Nov 2025 | ✅ Paid — $6,875.74 total (deposit + JS remainder) |
+| RC Excursion | Feb 2026 | ✅ Booked — LOTR & Weta Tour, Wellington, $219.00 |
+
+---
+
+## 🎲 Board Game Convention — How It Works
+
+This is a BGG (BoardGameGeek) convention at sea. Here's what to expect if it's your first time.
+
+### The Game Room & Library
+- **Location:** Conference Centre, Deck 13 AFT — this is the BGG@SEA hub
+- **Access:** Your Game Room Access badge (paid, $150) gets you in. General cruise passengers cannot enter. Wear your wristband/badge visibly.
+- **Hours:** 24/7 access for badge holders
+- **Library:** 300+ games available to borrow. You can check out **one base game (plus its expansions) at a time**. Play in the game room or take it elsewhere on the ship.
+- **Additional space:** Reserved dining areas are used for overflow gaming during the day, and the Windjammer buffet area in the evening.
+
+### Finding Games & Players
+- **Discord server** — Join the BGG@SEA Discord ([discord.gg/hWFMq94BH8](https://discord.gg/hWFMq94BH8)) and check the **#game-scheduling** channel to organise games you really want to play before you even board.
+- **"Players Wanted" signs** — look for these on tables in the game room. People set them up when they want others to join.
+- **"Teachers Wanted" signs** — someone has a game and wants to learn or teach it. Great way to try something new.
+- **Just ask** — approaching a table and asking "Room for one more?" or "What are you playing?" is completely normal and expected. Board gamers are a welcoming bunch.
+- **Attendee-brought games** — beyond the library, people bring their own games. There's a community GeekList tracking what people are bringing.
+- **Sea days are peak gaming** — port days tend to have gaming in the evenings after everyone's back from excursions.
+
+### Etiquette & Tips
+- **Joining tables:** Perfectly fine to ask strangers if you can join. That's the whole point of the convention.
+- **Be present:** No phones at the table during a game. Stay engaged.
+- **Don't "quarterback"** — avoid telling other players what they should do, even if you can see a better move.
+- **Don't touch other players' pieces** without asking.
+- **Be gracious** — good winner, good loser. It's a social event first.
+- **Announce your turns** — say what you're doing, especially in games with newer players. It helps everyone follow along.
+- **Plan ahead** — think about your next move during others' turns so you're not holding things up.
+- **Hygiene matters** — long days in a shared space. Shower, deodorant, clean hands. This is genuinely one of the most common bits of convention advice.
+- **Don't attend the game room if you're unwell** — close quarters, shared components. If you pick up a bug, game in your cabin instead.
+
+### Convention Events
+- **Welcome Reception (Day 2, 7–8pm Music Hall):** Complimentary appetisers and drinks, meet other players.
+- **Open gaming:** The core of the convention. Self-directed, play what you want, when you want.
+- **Learn-to-play sessions:** Sometimes organised for popular or complex games.
+- **Māori Lunch with Game Designers (Wellington):** Special off-ship event if you signed up.
+- **Check the whiteboard** in the game room regularly for event announcements and schedule changes.
+
+---
+
+## 📍 Day-by-Day Itinerary
+
+> **Port times explained:** The Guest Ticket Booklet shows **ship arrival/departure** times. The RC app shows **gangway open/close** times (narrower — gangway opens after arrival for clearance, closes before departure). Use the gangway times for planning when you can get off and must be back. All NZ ports are **DOCK** (not tender) — you walk straight off the ship.
+
+| Day | Date | Location | Ship (Booklet) | Gangway (App) | Notes |
+|-----|------|----------|----------------|---------------|-------|
+| 1 | Feb 15 (Sun) | **Sydney** | Sails 5:00pm | All aboard ~4pm | Embarkation, arrive 2:30pm |
+| 2 | Feb 16 (Mon) | At Sea | — | — | 🎲 Welcome Reception 7–8pm Music Hall |
+| 3 | Feb 17 (Tue) | At Sea | — | — | 🏠 Exec Catchup 10am AEDT |
+| 4 | Feb 18 (Wed) | **Fiords** | Milford 8–9am · Doubtful 1–2pm · Dusky 4–5pm | — | Scenic cruising — all 3 fiords! |
+| 5 | Feb 19 (Thu) | **Dunedin** (Port Chalmers) | 7:30am–6:00pm | 8:15am–5:30pm | First NZ port · Dock |
+| 6 | Feb 20 (Fri) | **Christchurch** (Lyttelton) | 8:00am–6:00pm | 8:45am–5:30pm | Dock |
+| 7 | Feb 21 (Sat) | **Wellington** | 7:00am–5:00pm | 7:45am–4:30pm | 🎲 LOTR Tour 8am ✅ · Māori Lunch? · ⚠️ 4:15pm bus tight! · Dock |
+| 8 | Feb 22 (Sun) | **Napier** | 8:00am–4:30pm | 8:45am–4:00pm | Art Deco walk + gannets/wine · Dock |
+| 9 | Feb 23 (Mon) | **Tauranga** ✨ | 1:30pm–8:00pm | ⚠️ 2:15pm–7:00pm | 🎂 Birthday! Mt Maunganui hike + Hot Pools · Dock |
+| 10 | Feb 24 (Tue) | At Sea | — | — | 🏠 Exec Catchup 10am AEDT |
+| 11 | Feb 25 (Wed) | At Sea | — | — | 🎲 Farewell Reception 4–5pm Music Hall |
+| 12 | Feb 26 (Thu) | At Sea | — | — | Last sea day — pack tonight (staff collect luggage) |
+| 13 | Feb 27 (Fri) | **Sydney** | Arrives 6:30am | — | Disembarkation · Choice Departure (The Key) |
+
+---
+
+## 📞 Useful Contacts & Links
+
+- **BGG@SEA Discord:** [discord.gg/hWFMq94BH8](https://discord.gg/hWFMq94BH8) — check **#game-scheduling** to pre-arrange games
+- **BGG@SEA Organisers:** info@tabletop.events
+- **Jeff (BGG@SEA):** jeff@qwyx.events
+- **Royal Caribbean (Australia):** 1800 754 500
+- **Chubb Insurance (AMEX travel cover):** 1800 139 149 (Mon–Fri 8:30am–5pm AEST) / amextravel.au@chubb.com
+- **Royal Caribbean App:** Download from App Store / Google Play
+- **NZTD App:** Download from App Store / Google Play
+- **NZTD Web:** www.travellerdeclaration.govt.nz/cruise
