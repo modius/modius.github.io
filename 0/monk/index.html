@@ -1,0 +1,465 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warhammer Quest Order Builder - Little Monk</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      min-height: 100vh;
+      padding: 24px;
+      color: #e2e8f0;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 32px; }
+    .header h1 { color: #fbbf24; font-size: 28px; margin-bottom: 8px; }
+    .header p { color: #94a3b8; }
+    .legend { display: flex; justify-content: center; gap: 24px; margin-top: 12px; font-size: 14px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .legend-dot.confirmed { background: #4ade80; }
+    .legend-dot.estimated { background: #c084fc; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .stat-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-value { font-size: 24px; font-weight: bold; }
+    .stat-value.amber { color: #fbbf24; }
+    .stat-value.green { color: #4ade80; }
+    .stat-value.purple { color: #c084fc; }
+    .stat-value.muted { color: #94a3b8; }
+    .stat-label { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+
+    /* Buttons */
+    .buttons { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-amber { background: #d97706; color: white; }
+    .btn-amber:hover { background: #f59e0b; }
+    .btn-slate { background: #475569; color: white; }
+    .btn-slate:hover { background: #64748b; }
+    .btn-blue { background: #2563eb; color: white; display: flex; align-items: center; gap: 8px; }
+    .btn-blue:hover { background: #3b82f6; }
+    .btn-green { background: #15803d; color: white; margin-left: auto; }
+    .btn-green:hover { background: #16a34a; }
+
+    /* Summary */
+    .summary {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid #15803d;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: none;
+    }
+    .summary.visible { display: block; }
+    .summary h3 { color: #4ade80; margin-bottom: 12px; }
+    .summary-item { display: flex; justify-content: space-between; padding: 4px 0; }
+    .summary-item .name { display: flex; align-items: center; gap: 8px; }
+    .summary-total {
+      border-top: 1px solid #15803d;
+      margin-top: 12px;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .summary-note { font-size: 13px; color: #94a3b8; margin-top: 12px; }
+    .summary-note.purple { color: #c084fc; }
+    .est-badge {
+      font-size: 11px;
+      padding: 2px 6px;
+      background: rgba(192, 132, 252, 0.2);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 4px;
+    }
+
+    /* Categories */
+    .category {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .category-header {
+      background: rgba(71, 85, 105, 0.5);
+      padding: 12px 16px;
+      border-bottom: 1px solid #475569;
+    }
+    .category-header h2 { color: #fcd34d; font-size: 18px; }
+
+    /* Items */
+    .item {
+      padding: 16px;
+      border-bottom: 1px solid #334155;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      gap: 16px;
+    }
+    .item:last-child { border-bottom: none; }
+    .item:hover { background: rgba(71, 85, 105, 0.3); }
+    .item.selected { background: rgba(217, 119, 6, 0.15); }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #64748b;
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .item.selected .checkbox {
+      background: #f59e0b;
+      border-color: #f59e0b;
+    }
+    .checkbox svg { display: none; }
+    .item.selected .checkbox svg { display: block; }
+
+    .item-content { flex: 1; }
+    .item-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .item-name { font-weight: 600; color: white; }
+    .item-note { font-size: 13px; color: #fbbf24; opacity: 0.8; margin-top: 4px; }
+    .item-includes { font-size: 13px; color: #94a3b8; margin-top: 8px; }
+    .item-includes span { color: #64748b; }
+
+    .item-price { display: flex; align-items: center; gap: 8px; }
+    .price { font-size: 20px; font-weight: bold; color: #4ade80; }
+    .price.estimated { color: #c084fc; }
+
+    /* Floating Bar */
+    .floating-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(251, 191, 36, 0.5);
+      padding: 16px;
+      backdrop-filter: blur(8px);
+      display: none;
+    }
+    .floating-bar.visible { display: block; }
+    .floating-bar-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .floating-bar .count { color: #94a3b8; }
+    .floating-bar .total-section { display: flex; align-items: center; gap: 8px; }
+    .floating-bar .total-label { color: #94a3b8; }
+    .floating-bar .total-value { font-size: 28px; font-weight: bold; color: #4ade80; }
+    .floating-bar .total-value.has-estimates { color: #c084fc; }
+    .floating-bar .shipping { color: #64748b; }
+    .floating-bar .estimates-badge {
+      font-size: 12px;
+      padding: 4px 8px;
+      background: rgba(192, 132, 252, 0.2);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 4px;
+    }
+
+    .spacer { height: 80px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Warhammer Quest Order Builder</h1>
+      <p>Little Monk's Product Catalogue</p>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-dot confirmed"></div>
+          <span style="color: #94a3b8;">Confirmed price</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot estimated"></div>
+          <span style="color: #94a3b8;">Estimated price</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-value amber" id="itemCount">0</div>
+        <div class="stat-label">Items Selected</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value green" id="currentTotal">$0</div>
+        <div class="stat-label">Current Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value muted" id="allInTotal">$0</div>
+        <div class="stat-label">All-In Total</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button class="btn-amber" onclick="selectAll()">Select All</button>
+      <button class="btn-slate" onclick="clearAll()">Clear All</button>
+      <button class="btn-blue" onclick="selectStarter()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+        </svg>
+        Starter Package
+      </button>
+      <button class="btn-green" onclick="toggleSummary()">Show Order Summary</button>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary" id="summary">
+      <h3>Order Summary for Little Monk</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-total">
+        <span>Total (excl. shipping)</span>
+        <span id="summaryTotal" class="green">$0</span>
+      </div>
+      <p class="summary-note purple" id="estimatesNote" style="display: none;">* Total includes estimated prices — confirm with Little Monk</p>
+      <p class="summary-note">Copy this list to send to Little Monk for shipping quote</p>
+    </div>
+
+    <!-- Products -->
+    <div id="products"></div>
+
+    <!-- Spacer for floating bar -->
+    <div class="spacer" id="spacer" style="display: none;"></div>
+  </div>
+
+  <!-- Floating Bar -->
+  <div class="floating-bar" id="floatingBar">
+    <div class="floating-bar-content">
+      <div class="count"><span id="floatingCount">0</span> item(s) selected</div>
+      <div class="total-section">
+        <span class="total-label">Total:</span>
+        <span class="total-value" id="floatingTotal">$0</span>
+        <span class="shipping">+ shipping</span>
+        <span class="estimates-badge" id="floatingEstimates" style="display: none;">includes estimates</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      {
+        category: "Core Collections",
+        items: [
+          { id: 1, name: "Card Collection #1 & #2", price: 280, video: "https://youtu.be/BCG1OblGEIw", note: "~1,200 cards — sold as a set (includes print-exclusive content)" },
+          { id: 2, name: "Set of 28 Warrior Rulebooks", price: 215, video: "https://youtu.be/_5WQEaorO-4", note: "Full warrior rulebook set" },
+          { id: 3, name: "500+ Card Tokens & Counters", price: 175, video: "https://youtu.be/9xZuA8RyFgM", note: "Currently printing - can add to order" },
+          { id: 13, name: "Board Sections (Dungeon Tiles)", price: 300, note: "Rooms, corridors & junctions — essential for play" },
+        ]
+      },
+      {
+        category: "Expansion Books",
+        items: [
+          { id: 4, name: "Travelling Hazards", price: 15, video: "https://youtu.be/SXroIprAyNg" },
+          { id: 5, name: "Settlement Events", price: 15, video: "https://youtu.be/SXroIprAyNg" },
+          { id: 6, name: "Alehouse Compendium", price: 10, video: "https://youtu.be/FxMaC52oVOk" },
+          { id: 7, name: "Pits & Traps Rulebook", price: 6, video: "https://youtu.be/FxMaC52oVOk" },
+          { id: 8, name: "Ocean Travel", price: 10, video: "https://youtu.be/7fdULmsOge8" },
+          { id: 9, name: "Hall of the Hag Queen", price: 45, video: "https://youtu.be/1e3B06E06po" },
+        ]
+      },
+      {
+        category: "Expansion Bundles",
+        items: [
+          {
+            id: 10,
+            name: "6 Expansion Bundle",
+            price: 60,
+            video: "https://youtu.be/VBOvvNazboM",
+            includes: ["Carnival of Chaos", "Castle of Darkness", "Caverns of Slaughter", "Manor the Spectre", "Mountains of Mayhem", "Realm of Savages"]
+          },
+          {
+            id: 11,
+            name: "4 Expansion Bundle #1",
+            price: 40,
+            video: "https://youtu.be/8oO4vvul0vw",
+            includes: ["Curse of Konzhaufen", "Fortress of Blood", "Domain of the Horned Rat", "Palace of Temptation"]
+          },
+          {
+            id: 12,
+            name: "4 Expansion Bundle #2",
+            price: 40,
+            video: "https://youtu.be/UM9s8GA_QI0",
+            includes: ["Pits of Revulsion", "Rise of the Goblin King", "Labyrinth of Deception", "Dwarf Mines"]
+          },
+        ]
+      }
+    ];
+
+    let selectedItems = new Set();
+    let summaryVisible = false;
+
+    // Calculate all-in total
+    const allInTotal = products.reduce((sum, cat) =>
+      sum + cat.items.reduce((catSum, item) => catSum + item.price, 0), 0
+    );
+
+    function render() {
+      const productsContainer = document.getElementById('products');
+      productsContainer.innerHTML = products.map(category => `
+        <div class="category">
+          <div class="category-header">
+            <h2>${category.category}</h2>
+          </div>
+          ${category.items.map(item => `
+            <div class="item ${selectedItems.has(item.id) ? 'selected' : ''}" onclick="toggleItem(${item.id})">
+              <div class="checkbox">
+                <svg width="16" height="16" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <div>
+                    <div class="item-name">${item.name}</div>
+                    ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
+                    ${item.includes ? `<div class="item-includes"><span>Includes: </span>${item.includes.join(' • ')}</div>` : ''}
+                  </div>
+                  <div class="item-price">
+                    ${item.estimated ? '<span class="est-badge">est.</span>' : ''}
+                    <span class="price ${item.estimated ? 'estimated' : ''}">${item.estimated ? '~' : ''}$${item.price}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+    }
+
+    function updateStats() {
+      let total = 0;
+      let hasEstimates = false;
+      const selected = [];
+
+      products.forEach(category => {
+        category.items.forEach(item => {
+          if (selectedItems.has(item.id)) {
+            total += item.price;
+            selected.push(item);
+            if (item.estimated) hasEstimates = true;
+          }
+        });
+      });
+
+      // Update stats
+      document.getElementById('itemCount').textContent = selectedItems.size;
+      document.getElementById('currentTotal').textContent = `${hasEstimates ? '~' : ''}$${total}`;
+      document.getElementById('currentTotal').className = `stat-value ${hasEstimates ? 'purple' : 'green'}`;
+      document.getElementById('allInTotal').textContent = `$${allInTotal}`;
+
+      // Update floating bar
+      const floatingBar = document.getElementById('floatingBar');
+      const spacer = document.getElementById('spacer');
+      if (selectedItems.size > 0) {
+        floatingBar.classList.add('visible');
+        spacer.style.display = 'block';
+        document.getElementById('floatingCount').textContent = selectedItems.size;
+        document.getElementById('floatingTotal').textContent = `${hasEstimates ? '~' : ''}$${total}`;
+        document.getElementById('floatingTotal').className = `total-value ${hasEstimates ? 'has-estimates' : ''}`;
+        document.getElementById('floatingEstimates').style.display = hasEstimates ? 'inline' : 'none';
+      } else {
+        floatingBar.classList.remove('visible');
+        spacer.style.display = 'none';
+      }
+
+      // Update summary
+      const summaryItems = document.getElementById('summaryItems');
+      summaryItems.innerHTML = selected.map(item => `
+        <div class="summary-item">
+          <span class="name">
+            ${item.name}
+            ${item.estimated ? '<span class="est-badge">est.</span>' : ''}
+          </span>
+          <span style="color: ${item.estimated ? '#c084fc' : '#4ade80'}">${item.estimated ? '~' : ''}$${item.price}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('summaryTotal').textContent = `${hasEstimates ? '~' : ''}$${total}`;
+      document.getElementById('summaryTotal').style.color = hasEstimates ? '#c084fc' : '#4ade80';
+      document.getElementById('estimatesNote').style.display = hasEstimates ? 'block' : 'none';
+    }
+
+    function toggleItem(id) {
+      if (selectedItems.has(id)) {
+        selectedItems.delete(id);
+      } else {
+        selectedItems.add(id);
+      }
+      render();
+      updateStats();
+    }
+
+    function selectAll() {
+      products.forEach(cat => cat.items.forEach(item => selectedItems.add(item.id)));
+      render();
+      updateStats();
+    }
+
+    function clearAll() {
+      selectedItems.clear();
+      render();
+      updateStats();
+    }
+
+    function selectStarter() {
+      // Little Monk's recommended starter: Card Collection, Travelling Hazards, Settlement Events, Hall of Hag Queen, 6 Expansion Bundle, Board Sections
+      selectedItems = new Set([1, 4, 5, 9, 10, 13]);
+      render();
+      updateStats();
+    }
+
+    function toggleSummary() {
+      summaryVisible = !summaryVisible;
+      const summary = document.getElementById('summary');
+      const btn = document.querySelector('.btn-green');
+      if (summaryVisible && selectedItems.size > 0) {
+        summary.classList.add('visible');
+        btn.textContent = 'Hide Order Summary';
+      } else {
+        summary.classList.remove('visible');
+        btn.textContent = 'Show Order Summary';
+      }
+    }
+
+    // Initial render
+    render();
+    updateStats();
+  </script>
+</body>
+</html>
