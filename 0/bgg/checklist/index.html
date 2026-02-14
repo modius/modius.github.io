@@ -3,6 +3,100 @@ layout: zero
 title: "BGG@SEA 2026 — Checklist"
 sitemap: false
 ---
+<style>
+  /* ── Back link ── */
+  .cl-back { display: inline-block; color: #888; text-decoration: none; font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .cl-back:hover { color: #ccc; }
+
+  /* ── Progress ── */
+  .cl-progress { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 2rem; }
+  .cl-progress-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .cl-progress-label { font-size: 0.95rem; color: #ccc; font-weight: 600; }
+  .cl-progress-count { font-size: 0.85rem; color: #888; }
+  .cl-progress-bar { background: #222; border-radius: 6px; height: 8px; overflow: hidden; margin-top: 0.5rem; }
+  .cl-progress-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); border-radius: 6px; transition: width 0.3s ease; }
+  .cl-reset { background: none; border: 1px solid #444; color: #888; font-size: 0.78rem; padding: 0.3rem 0.8rem; border-radius: 6px; cursor: pointer; font-family: inherit; }
+  .cl-reset:hover { border-color: #888; color: #ccc; }
+
+  /* ── Rendered markdown ── */
+  #checklist h1 { font-size: 1.8rem; font-weight: 700; color: #fff; margin: 0 0 1rem; text-align: center; }
+  #checklist h2 { font-size: 1.3rem; font-weight: 700; color: #fff; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #333; }
+  #checklist h3 { font-size: 1.05rem; font-weight: 600; color: #ddd; margin: 1.5rem 0 0.6rem; }
+  #checklist p { font-size: 0.9rem; color: #aaa; line-height: 1.7; margin: 0.5rem 0; }
+  #checklist strong { color: #ddd; }
+  #checklist em { color: #999; }
+  #checklist a { color: #60a5fa; text-decoration: underline; text-underline-offset: 2px; }
+  #checklist a:hover { color: #93c5fd; }
+  #checklist hr { border: none; border-top: 1px solid #333; margin: 2rem 0; }
+  #checklist del { color: #666; }
+
+  /* ── Lists ── */
+  #checklist ul, #checklist ol { margin: 0.5rem 0; padding-left: 0; list-style: none; }
+  #checklist ol { padding-left: 1.5rem; list-style: decimal; }
+  #checklist ol li { padding: 0.2rem 0; }
+  #checklist li { font-size: 0.9rem; color: #bbb; line-height: 1.6; margin: 0.2rem 0; }
+  #checklist ul ul { margin-left: 1.5rem; margin-top: 0.15rem; }
+
+  /* ── Checkbox items ── */
+  #checklist li.task-list-item { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.35rem 0; list-style: none; }
+  #checklist li.task-list-item input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px; min-width: 18px;
+    border: 2px solid #444; border-radius: 4px;
+    background: transparent; cursor: pointer;
+    margin-top: 3px; position: relative; flex-shrink: 0;
+  }
+  #checklist li.task-list-item input[type="checkbox"]:checked {
+    background: #22c55e; border-color: #22c55e;
+  }
+  #checklist li.task-list-item input[type="checkbox"]:checked::after {
+    content: ""; position: absolute; left: 4px; top: 1px;
+    width: 5px; height: 9px;
+    border: solid #fff; border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  #checklist li.task-list-item.checked > span { text-decoration: line-through; color: #555; }
+
+  /* ── Blockquotes ── */
+  #checklist blockquote {
+    border-left: 3px solid #444; background: rgba(255,255,255,0.03);
+    padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 8px 8px 0;
+  }
+  #checklist blockquote p { font-size: 0.85rem; color: #999; margin: 0.3rem 0; }
+
+  /* ── Tables ── */
+  .cl-table-wrap { overflow-x: auto; margin: 0.75rem 0; -webkit-overflow-scrolling: touch; }
+  #checklist table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 500px; }
+  #checklist th { background: #222; color: #ccc; font-weight: 600; text-align: left; padding: 0.5rem 0.75rem; border: 1px solid #333; white-space: nowrap; }
+  #checklist td { padding: 0.5rem 0.75rem; border: 1px solid #2a2a2a; color: #aaa; }
+  #checklist tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  #checklist tr:hover td { background: rgba(255,255,255,0.04); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    #checklist h1 { font-size: 1.4rem; }
+    #checklist h2 { font-size: 1.1rem; }
+  }
+</style>
+
+<a href="/0/bgg/" class="cl-back">&larr; Back to BGG@SEA 2026</a>
+
+<div class="cl-progress">
+  <div class="cl-progress-top">
+    <span class="cl-progress-label" id="progressLabel">0 of 0 tasks</span>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <span class="cl-progress-count" id="progressPct">0%</span>
+      <button class="cl-reset" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div class="cl-progress-bar">
+    <div class="cl-progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<div id="checklist"></div>
+
+<script id="md-source" type="text/markdown">
 # BGG@SEA 2026 — Cruise Preparation Checklist
 
 **Ship:** Anthem of the Seas
@@ -306,3 +400,126 @@ This is a BGG (BoardGameGeek) convention at sea. Here's what to expect if it's y
 - **Royal Caribbean App:** Download from App Store / Google Play
 - **NZTD App:** Download from App Store / Google Play
 - **NZTD Web:** www.travellerdeclaration.govt.nz/cruise
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@15/marked.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  var STORAGE_KEY = 'bgg-checklist-v2';
+
+  // Parse markdown
+  var src = document.getElementById('md-source').textContent;
+  marked.setOptions({ gfm: true, breaks: false });
+  var html = marked.parse(src);
+
+  // Wrap tables for horizontal scroll
+  html = html.replace(/<table>/g, '<div class="cl-table-wrap"><table>').replace(/<\/table>/g, '</table></div>');
+
+  document.getElementById('checklist').innerHTML = html;
+
+  // Find all task list checkboxes and assign IDs
+  var checkboxes = [];
+  var allItems = document.querySelectorAll('#checklist li');
+  var cbIndex = 0;
+
+  allItems.forEach(function(li) {
+    var cb = li.querySelector('input[type="checkbox"]');
+    if (!cb) return;
+
+    li.classList.add('task-list-item');
+    var id = 'cb-' + cbIndex;
+    cb.setAttribute('data-id', id);
+
+    // Wrap text content in a span for strikethrough styling
+    var nodes = [];
+    for (var i = 0; i < li.childNodes.length; i++) {
+      if (li.childNodes[i] !== cb) nodes.push(li.childNodes[i]);
+    }
+    var span = document.createElement('span');
+    nodes.forEach(function(n) { span.appendChild(n); });
+    li.appendChild(span);
+
+    checkboxes.push({
+      el: li,
+      cb: cb,
+      id: id,
+      defaultChecked: cb.checked
+    });
+    cbIndex++;
+  });
+
+  // Load saved state
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState() {
+    var state = {};
+    checkboxes.forEach(function(item) {
+      if (item.defaultChecked && !item.cb.checked) {
+        state[item.id] = false;
+      } else if (!item.defaultChecked && item.cb.checked) {
+        state[item.id] = true;
+      }
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function applyState() {
+    var saved = loadState();
+    checkboxes.forEach(function(item) {
+      if (saved.hasOwnProperty(item.id)) {
+        item.cb.checked = saved[item.id];
+      }
+      updateStyle(item);
+    });
+  }
+
+  function updateStyle(item) {
+    if (item.cb.checked) {
+      item.el.classList.add('checked');
+    } else {
+      item.el.classList.remove('checked');
+    }
+  }
+
+  function updateProgress() {
+    var total = checkboxes.length;
+    var done = checkboxes.filter(function(item) { return item.cb.checked; }).length;
+    var pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+    document.getElementById('progressLabel').textContent = done + ' of ' + total + ' tasks';
+    document.getElementById('progressPct').textContent = pct + '%';
+    document.getElementById('progressFill').style.width = pct + '%';
+  }
+
+  // Attach listeners
+  checkboxes.forEach(function(item) {
+    item.cb.addEventListener('change', function() {
+      updateStyle(item);
+      saveState();
+      updateProgress();
+    });
+  });
+
+  // Reset
+  document.getElementById('resetBtn').addEventListener('click', function() {
+    if (!confirm('Reset all checkboxes to their original state?')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    checkboxes.forEach(function(item) {
+      item.cb.checked = item.defaultChecked;
+      updateStyle(item);
+    });
+    updateProgress();
+  });
+
+  // Init
+  applyState();
+  updateProgress();
+})();
+</script>
