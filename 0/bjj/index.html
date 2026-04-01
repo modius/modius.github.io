@@ -1,0 +1,415 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jiu-Jitsu Options for James — Sydney Holiday 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #f8f7f4;
+    color: #2d2d2d;
+    line-height: 1.65;
+    padding: 2rem 1.5rem;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e0ddd6;
+  }
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.35rem;
+  }
+  header .subtitle {
+    font-size: 1rem;
+    color: #6b6b6b;
+  }
+  .context-box {
+    background: #fff;
+    border: 1px solid #e0ddd6;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .context-box h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin-bottom: 0.6rem;
+  }
+  .context-box p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  .context-box .detail {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .context-box .label {
+    font-weight: 600;
+    color: #555;
+    min-width: 100px;
+  }
+
+  .dojo-card {
+    background: #fff;
+    border: 1px solid #e0ddd6;
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.2s;
+  }
+  .dojo-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .dojo-card h2 {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 0.15rem;
+  }
+  .dojo-card .tagline {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+  }
+  .dojo-card .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .info-item {
+    font-size: 0.9rem;
+  }
+  .info-item .info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #999;
+    margin-bottom: 0.15rem;
+  }
+  .info-item .info-value {
+    color: #333;
+    font-weight: 500;
+  }
+  .info-item .info-value a {
+    color: #3a6ea5;
+    text-decoration: none;
+  }
+  .info-item .info-value a:hover {
+    text-decoration: underline;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .pros, .cons {
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .pros {
+    background: #f0f7f0;
+    border: 1px solid #d4e8d4;
+  }
+  .cons {
+    background: #fdf5f0;
+    border: 1px solid #f0ddd0;
+  }
+  .pros h3, .cons h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .pros h3 { color: #3a7a3a; }
+  .cons h3 { color: #b05a30; }
+  .pros ul, .cons ul {
+    list-style: none;
+    padding: 0;
+  }
+  .pros li, .cons li {
+    padding: 0.25rem 0;
+    padding-left: 1.2em;
+    position: relative;
+    color: #444;
+  }
+  .pros li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #3a7a3a;
+  }
+  .cons li::before {
+    content: "\2013";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #b05a30;
+  }
+
+  .section {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e0ddd6;
+  }
+  .section p {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 0.75rem;
+  }
+
+  .recommendation {
+    background: linear-gradient(135deg, #f0f4fa, #e8eef6);
+    border: 1px solid #c8d6e5;
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 2rem;
+  }
+  .recommendation h2 {
+    font-size: 1.1rem;
+    color: #2c5282;
+    margin-bottom: 0.6rem;
+  }
+  .recommendation p {
+    font-size: 0.95rem;
+    color: #3a3a3a;
+    margin-bottom: 0.6rem;
+  }
+  .recommendation .steps {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+  }
+  .recommendation .steps li {
+    font-size: 0.95rem;
+    color: #3a3a3a;
+    padding: 0.2rem 0;
+  }
+
+  .pricing-note {
+    background: #fffbe6;
+    border: 1px solid #f0e6a0;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #665500;
+  }
+  .pricing-note strong {
+    color: #4a3c00;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0ddd6;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+
+  @media (max-width: 600px) {
+    .dojo-card .info-grid { grid-template-columns: 1fr; }
+    .pros-cons { grid-template-columns: 1fr; }
+    body { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Jiu-Jitsu Options for James</h1>
+    <p class="subtitle">Sydney School Holiday Programme &mdash; April 2026</p>
+  </header>
+
+  <div class="context-box">
+    <h2>The Situation</h2>
+    <div class="detail"><span class="label">Who:</span> James (14 years old, complete beginner)</div>
+    <div class="detail"><span class="label">Where:</span> Staying in Elizabeth Bay</div>
+    <div class="detail"><span class="label">Window:</span> Now until 14 April 2026 (~2 weeks)</div>
+    <div class="detail"><span class="label">Goal:</span> Try jiu-jitsu, see if he enjoys it, learn some foundations</div>
+  </div>
+
+  <!-- DOJO 1 -->
+  <div class="dojo-card">
+    <h2>Vantage Jiu-Jitsu</h2>
+    <p class="tagline">Alliance-affiliated &bull; Bondi Junction</p>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Address</div>
+        <div class="info-value">Level 1, 44 Bronte Rd, Bondi Junction<br>(entry via Ebley St)</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Travel from E. Bay</div>
+        <div class="info-value">~20 min by bus (333/380)</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Head Instructor</div>
+        <div class="info-value">Adam Childs &mdash; BJJ black belt under Fabio Gurgel (Alliance). Only non-South American to teach at Alliance HQ in S&atilde;o Paulo.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Contact</div>
+        <div class="info-value"><a href="tel:0435845004">0435 845 004</a><br><a href="mailto:info@vantagejiujitsu.com.au">info@vantagejiujitsu.com.au</a></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Kids Class</div>
+        <div class="info-value">Dedicated kids BJJ for ages 10+. Classes Mon&ndash;Sat.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Private Lessons</div>
+        <div class="info-value"><strong>Yes &mdash; explicitly offered.</strong> Flexible day &amp; time. Highly reviewed for one-on-one instruction.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Trial</div>
+        <div class="info-value">Drop-in trial classes available.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Website</div>
+        <div class="info-value"><a href="https://vantagejiujitsu.com.au/classes/kids-bjj-10/" target="_blank">vantagejiujitsu.com.au</a></div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>Pros</h3>
+        <ul>
+          <li>Closest to Elizabeth Bay &mdash; easy commute</li>
+          <li>World-class Alliance pedigree</li>
+          <li>Specific 10+ kids class (won't be grouped with little ones)</li>
+          <li>Private lessons explicitly advertised with flexible scheduling</li>
+          <li>Drop-in trials &mdash; no commitment needed</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>Considerations</h3>
+        <ul>
+          <li>Specific holiday camp format not confirmed &mdash; need to call</li>
+          <li>Pricing not listed online (typical for BJJ gyms)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOJO 2 -->
+  <div class="dojo-card">
+    <h2>Kapincho Jiu-Jitsu</h2>
+    <p class="tagline">Brazilian competition pedigree &bull; Artarmon</p>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Address</div>
+        <div class="info-value">Connected with Braddah Jiu-Jitsu, 43 Herbert St, Artarmon</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Travel from E. Bay</div>
+        <div class="info-value">~30&ndash;40 min (across the Harbour Bridge)</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Head Instructor</div>
+        <div class="info-value">Prof. Antonio Pedro Dias (&ldquo;Kapincho&rdquo;) &mdash; 4th-degree black belt, 25+ years&rsquo; experience, 2016 CBJJE World Champion.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Contact</div>
+        <div class="info-value">Via website contact form</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Kids Class</div>
+        <div class="info-value">Kids programmes offered (inc. anti-bullying focus). Dedicated teen class not confirmed.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Private Lessons</div>
+        <div class="info-value">Not listed online, but likely available on request (standard practice).</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Trial</div>
+        <div class="info-value">Free trial class offered.</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Website</div>
+        <div class="info-value"><a href="https://www.kapinchojiujitsu.com.au/" target="_blank">kapinchojiujitsu.com.au</a></div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>Pros</h3>
+        <ul>
+          <li>Instructor has elite competition credentials</li>
+          <li>Free trial class &mdash; zero-cost way to test the waters</li>
+          <li>Authentic Brazilian coaching style, typically very welcoming to beginners</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>Considerations</h3>
+        <ul>
+          <li>Significantly further from Elizabeth Bay (across the bridge)</li>
+          <li>Dedicated teen class not confirmed &mdash; James may train with younger kids or adults</li>
+          <li>Private lessons not advertised (would need to enquire)</li>
+          <li>Less information available online generally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVATE LESSONS -->
+  <div class="section">
+    <h2>Why Private Lessons Make Sense</h2>
+    <p>Given the short two-week window and James being a complete beginner, private lessons offer some real advantages over group classes alone:</p>
+    <p><strong>Flexibility</strong> &mdash; Book around holiday plans rather than being locked into a fixed timetable. No rushing to make a 4pm class.</p>
+    <p><strong>Faster learning</strong> &mdash; A coach's undivided attention means James picks up fundamentals properly from day one, with real-time corrections rather than copying other kids and hoping for the best.</p>
+    <p><strong>Confidence</strong> &mdash; Walking into a group class as the only new person can be daunting at 14. A couple of privates first means he arrives with some knowledge and confidence.</p>
+    <p><strong>Honest assessment</strong> &mdash; After a few sessions, the coach can give a genuine view on whether James has an aptitude for it and what to pursue next.</p>
+  </div>
+
+  <div class="pricing-note">
+    <strong>Pricing note:</strong> Private BJJ lessons in Sydney typically range from $80&ndash;$150 per session (45&ndash;60 min). Group classes on casual or short-term passes are usually $25&ndash;$50 per session. Neither dojo lists prices online &mdash; you&rsquo;ll need to ask directly.
+  </div>
+
+  <!-- RECOMMENDATION -->
+  <div class="recommendation">
+    <h2>Our Recommendation</h2>
+    <p>Vantage is the stronger option for this trip. It&rsquo;s much closer to Elizabeth Bay, explicitly offers private lessons with flexible scheduling, and has a dedicated 10+ kids class that James can drop into. The instructor&rsquo;s credentials are world-class.</p>
+    <p><strong>Suggested approach:</strong></p>
+    <ol class="steps">
+      <li>Call Adam at Vantage (<a href="tel:0435845004">0435 845 004</a>) and explain the situation &mdash; 14-year-old beginner, in Sydney for two weeks, wants to try BJJ.</li>
+      <li>Book 2&ndash;3 private lessons across the first week to build James&rsquo;s foundations and confidence.</li>
+      <li>Drop into the kids group classes in week two so he gets the social experience of training with others his age.</li>
+      <li>If he loves it, ask Adam about continuing options back home or which affiliation/gym to look for.</li>
+    </ol>
+    <p style="margin-top: 0.75rem;">This hybrid approach gives James the best of both worlds &mdash; proper personalised coaching <em>and</em> the fun of rolling with other young people &mdash; all within a two-week window.</p>
+  </div>
+
+  <footer>
+    Researched April 2026 &bull; Prices and schedules should be confirmed directly with each dojo
+  </footer>
+
+</div>
+</body>
+</html>
